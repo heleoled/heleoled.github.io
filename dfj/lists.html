@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收藏夹 | 东风夹の秘密基地</title> <!-- 页面标题 -->
+
+    <!-- !!! 路径是相对于根目录 !!! -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <!-- (可选) 为列表页单独创建 CSS -->
+    <link rel="stylesheet" href="css/lists.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"> <!-- 假设你准备了 32x32 的 PNG -->
+    <!-- <link rel="stylesheet" href="css/theme-christmas.css"> -->
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico"> -->
+</head>
+<body class="theme-light"> <!-- 主题类 -->
+
+    <!-- 页头 (和 blog.html 保持一致) -->
+    <header class="site-header">
+        <div class="header-content container">
+            <div class="site-branding">
+                <h1 class="site-title"><a href="blog.html">东风夹の秘密基地</a></h1>
+                <p class="site-description">记录美好与代码的次元碎片 (≧∇≦)/</p>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="blog.html">首页</a></li>
+                    <li><a href="archives.html">归档</a></li>
+                    <li><a href="tags.html">标签</a></li>
+                    <li><a href="categories.html">文章分类</a></li>
+                    <li><a href="lists.html" class="current-menu-item">收藏夹</a></li> <!-- 当前页面高亮 -->
+                    <li><a href="friends.html">友链</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                </ul>
+            </nav>
+            <div class="header-widgets">
+                <div class="search-widget with-icon"> <!-- 添加 with-icon 类 -->
+                    <input type="search" id="search-input" placeholder="搜索文章..." class="search-input" disabled>
+                    <!-- 按钮不再需要文字，只保留图标，并可能需要调整 class -->
+                    <button id="search-button" class="search-button-icon" aria-label="搜索" disabled>🔍</button>
+                </div>
+                <button id="theme-switcher" aria-label="切换主题">🌙</button>
+                <!-- <button id="random-post-btn" aria-label="随机文章">🎲</button> -->
+            </div>
+        </div>
+        <div id="search-results-container" style="display: none; margin-top: 20px; padding: 20px; background-color: var(--card-bg-color); border-radius: 8px; box-shadow: 0 3px 10px var(--shadow-color);">
+            <h3>搜索结果:</h3>
+            <ul id="search-results-list"></ul>
+            <p id="search-no-results" style="display: none; color: var(--text-light-color);">没有找到相关内容哦~</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <div class="main-content-area container">
+
+        <!-- "收藏夹" 的主内容区 -->
+        <main class="content-main lists-page"> <!-- 可以加个 lists-page 类 -->
+
+            <article class="list-content post-full"> <!-- 借用文章页卡片样式 -->
+                <header class="post-header-full">
+                    <h1 class="post-title-full">东风夹的收藏夹 💖</h1>
+                </header>
+
+                <div class="post-content-full">
+
+                    <!-- 动画区域 -->
+                    <section class="list-section anime-list">
+                        <h2>🎬 动画 (Anime)</h2>
+                        <p>记录追番、补番和补完的动画~ (评分主观, 仅供参考)</p>
+                        <ul class="item-list">
+                            <div class="category-level-2">
+                                <div class="collapsible-section">
+                                    <h3 class="collapsible-header">
+                                        <span class="toggle-icon">▶</span>
+                                        <a href="#" class="toggle-trigger">🚀 正在追 (Watching)</a>
+                                    </h3>
+                                    <ul class="item-list collapsible-content" style="display: none;">
+                                         <!-- !!! 在这里手动添加你正在追的番剧 !!! -->
+                                        <li class="list-item watching">
+                                            <span class="item-status">[在追]</span>
+                                            <strong class="item-title">[男女之间的友情存在吗？（不，不存在!!）]</strong>
+                                            <span class="item-rating">[进度：第 4 话 | 简评：看的我窝火，为什么我没有这样的挚友]</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>                            <!-- 列表项示例 2: 已补完 -->
+                            <section class="list-section anime-list">
+                                <h2>✅ 已看完 (Completed)</h2>
+                                <p>一些个人评价和记录 (评分5分制)。</p>
+                                <ul class="item-list">
+                                    <div class="category-level-2"> <!-- 保留这个外层容器用于样式缩进 -->
+                                        <div class="collapsible-section">
+                                            <h3 class="collapsible-header">
+                                                <span class="toggle-icon">▶</span> <!-- 初始是收起状态 -->
+                                                <a href="#" class="toggle-trigger">📺 TV 动画</a>
+                                            </h3>
+                                            <ul class="item-list collapsible-content" style="display: none;"> <!-- 内容默认隐藏 -->
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">春原庄的管理人小姐</strong><span class="item-rating">- 评分: 3/5 (2018)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">绯弹的亚莉亚</strong><span class="item-rating">- 评分: 3/5 (2010)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">萝莉的时间</strong><span class="item-rating">- 评分: 4/5 (2007)</span><p class="item-comment">题材警示！</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">迷糊餐厅</strong><span class="item-rating">- 评分: 2.5/5 (2010)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">谜样女友X</strong><span class="item-rating">- 评分: 2/5 (2012)</span> <!-- 原文件年份 2013 有误 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">神的记事本</strong><span class="item-rating">- 评分: 2.5/5 (2011)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">为美好的世界献上祝福！(Konosuba)</strong><span class="item-rating">- 评分: 4/5 (2016 - 第一季)</span><p class="item-comment">包含1、2、3季评价</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">写真女友</strong><span class="item-rating">- 评分: 3/5 (2013)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">乙女游戏世界对路人角色很不友好</strong><span class="item-rating">- 评分: 3/5 (2022)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">异世界魔王与召唤少女的奴隶魔术</strong><span class="item-rating">- 评分: 3/5 (2018)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">樱花庄的宠物女孩</strong><span class="item-rating">- 评分: 4/5 (2012)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">理科生坠入情网故尝试证明 (第二季)</strong><span class="item-rating">- 评分: 4/5 (2022)</span> <!-- 明确是第二季 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">因为是反派大小姐所以养了魔王</strong><span class="item-rating">- 评分: 4/5 (2022)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">变态王子与不笑猫</strong><span class="item-rating">- 评分: 3.5/5 (2013)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">不要欺负我，长瀞同学 (含第二季)</strong><span class="item-rating">- 评分: 4/5 (2021 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">大神同学想要被吃掉</strong><span class="item-rating">- 评分: 5/5 (- 泡面番)</span><p class="item-comment">里番性质</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">带着智慧型手机闯荡异世界 (含第二季)</strong><span class="item-rating">- 评分: 3/5 (2017 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">杜鹃的婚约</strong><span class="item-rating">- 评分: 4/5 (2022)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">公司里的小小前辈</strong><span class="item-rating">- 评分: 4/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">和山田进行LV.999的恋爱</strong><span class="item-rating">- 评分: 4/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">久保同学不放过我</strong><span class="item-rating">- 评分: 4/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">你遭难了吗？</strong><span class="item-rating">- 评分: 4/5 (2019)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">契约之吻 (Engage Kiss)</strong><span class="item-rating">- 评分: 4.5/5 (2022)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">网路胜利组</strong><span class="item-rating">- 评分: 3/5 (2017)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我的朋友很少 (第一季)</strong><span class="item-rating">- 评分: 3.5/5 (2011)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我的朋友很少 NEXT (第二季)</strong><span class="item-rating">- 评分: 4.5/5 (2013)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我推的孩子</strong><span class="item-rating">- 评分: 4/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">喜欢本大爷的竟然就你一个？</strong><span class="item-rating">- 评分: 3.5/5 (2019)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">喜欢的人忘记戴眼镜了</strong><span class="item-rating">- 评分: 4/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">贤惠幼妻仙狐小姐</strong><span class="item-rating">- 评分: 3/5 (2019)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">宇崎酱想要玩耍！(含第二季)</strong><span class="item-rating">- 评分: 3.5/5 (2020 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">小智是女孩啦！</strong><span class="item-rating">- 评分: 3.5/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">总之就是非常可爱 (含第二季)</strong><span class="item-rating">- 评分: 4.5/5 (2020 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">终将成为你</strong><span class="item-rating">- 评分: 5/5 (2018)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">在现实世界照样无敌</strong><span class="item-rating">- 评分: 4/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">月色真美</strong><span class="item-rating">- 评分: 5/5 (2017)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">关于前辈很烦人的事</strong><span class="item-rating">- 评分: 4/5 (2021)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">狐妖小红娘 (动画)</strong><span class="item-rating">- 评分: 5/5 (- 国创)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">回复术士的重启人生</strong><span class="item-rating">- 评分: 5/5 (2021)</span><p class="item-comment">内容警示！</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">加油吧，同期酱</strong><span class="item-rating">- 评分: 3/5 (2021)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">邻人似银河</strong><span class="item-rating">- 评分: 4.5/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">猫娘乐园 (NEKOPARA)</strong><span class="item-rating">- 评分: 4/5 (2020)</span><p class="item-comment">TV动画</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">庙不可言</strong><span class="item-rating">- 评分: 3/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">魔物娘的同居日常</strong><span class="item-rating">- 评分: 3/5 (2015)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">女神的露天咖啡厅 (第一季)</strong><span class="item-rating">- 评分: 4.5/5 (2023)</span> <!-- 女仆 -> 女神 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">山田君与7个魔女</strong><span class="item-rating">- 评分: 4/5 (2015)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">伪恋 (含第二季)</strong><span class="item-rating">- 评分: 4/5 (2014 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">为什么老师会在这里！？</strong><span class="item-rating">- 评分: 3.5/5 (2019)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我的青春恋爱物语果然有问题。(全)</strong><span class="item-rating">- 评分: 5/5 (2013 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我老婆是学生会长! (含第二季)</strong><span class="item-rating">- 评分: 4/5 (2015 - 第一季)</span><p class="item-comment">里番性质</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我女友与青梅竹马的惨烈修罗场</strong><span class="item-rating">- 评分: 4/5 (2013)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我喜欢的妹妹但不是妹妹</strong><span class="item-rating">- 评分: 4.5/5 (2018)</span><p class="item-comment">作画警告！</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">新妹魔王的契约者 (含第二季)</strong><span class="item-rating">- 评分: 2/5 (2015 - 第一季)</span><p class="item-comment">里番性质</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">信长老师的年幼妻子</strong><span class="item-rating">- 评分: 1.5/5 (2019)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">异种族风俗娘评鉴指南</strong><span class="item-rating">- 评分: 2/5 (2020)</span><p class="item-comment">里番性质，重量级！</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">跃动青春</strong><span class="item-rating">- 评分: 4/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">这个勇者明明超强却过分慎重</strong><span class="item-rating">- 评分: 4/5 (2019)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">租借女友 (含第二、三季)</strong><span class="item-rating">- 评分: 5/5 (2020 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">只要可爱即使是变态你也会喜欢我吧？</strong><span class="item-rating">- 评分: 3/5 (2019)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">三次元女友 (含第二季)</strong><span class="item-rating">- 评分: 5/5 (2018 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">剃须。然后捡到女高中生。</strong><span class="item-rating">- 评分: 5.5/5  (2021)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我家的女友可不止可爱呢</strong><span class="item-rating">- 评分: 4.5/5 (2022)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我们无法一起学习 (含第二季)</strong><span class="item-rating">- 评分: 3.5/5 (2019 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">五等分的新娘 (含第二季、剧场版、特别篇)</strong><span class="item-rating">- 评分: 4.5/5 (2019 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">月刊少女野崎君</strong><span class="item-rating">- 评分: 4/5 (2014)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">侦探已死。</strong><span class="item-rating">- 评分: 5/5 (2021)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">总之就是非常可爱 (第一季)</strong><span class="item-rating">- 评分: 4/5 (2020)</span> <!-- 分开列出 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">捡到被退婚大小姐的我，教会她做坏坏的事</strong><span class="item-rating">- 评分: 4/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">紫罗兰永恒花园 (TV + 外传 + 剧场版)</strong><span class="item-rating">- 评分: 5.5/5  (2018 - TV)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">一脸嫌弃给你看胖次 (含第二季)</strong><span class="item-rating">- 评分: 2/5 (2018 - 第一季)</span><p class="item-comment">里番性质</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">人渣的本愿</strong><span class="item-rating">- 评分: 4/5 (2017)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">青梅竹马绝对不会输的恋爱喜剧</strong><span class="item-rating">- 评分: 4/5 (2021)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">女友成双 (含第二季)</strong><span class="item-rating">- 评分: 4/5 (2021 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">弩级战队 HxEROS</strong><span class="item-rating">- 评分: 4/5 (2020)</span><p class="item-comment">擦边球</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">满怀美梦的少年是现实主义者</strong><span class="item-rating">- 评分: 4/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">龙与虎</strong><span class="item-rating">- 评分: 5/5 (2008)</span> <!-- 原文件年份 2009 有误 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">堀与宫村 -piece- (第二季/补充)</strong><span class="item-rating">- 评分: 4.5/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">恶役千金LV99</strong><span class="item-rating">- 评分: 3/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">怪人的沙拉碗</strong><span class="item-rating">- 评分: 3.5/5 (2024)</span> <!-- 原文件年份 2023 有误 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">理科生坠入情网故尝试证明 (第一季)</strong><span class="item-rating">- 评分: 4/5 (2020)</span> <!-- 补上第一季 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">轮回七次的恶役千金</strong><span class="item-rating">- 评分: 3/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">梦想成为魔法少女</strong><span class="item-rating">- 评分: 2.5/5 (2024)</span><p class="item-comment">擦边/恶搞</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">弱势角色友崎君 (含第二季)</strong><span class="item-rating">- 评分: 3.5/5 (2021 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">身为魔王的我娶了奴隶精灵为妻，该如何表白我的爱？</strong><span class="item-rating">- 评分: 4.5/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">外科医生爱丽丝</strong><span class="item-rating">- 评分: 3/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">未确认进行式</strong><span class="item-rating">- 评分: 3/5 (2014)</span> <!-- 原文件年份 2013 有误 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">新妹魔王的契约者 BURST (第二季)</strong><span class="item-rating">- 评分: 4/5 (2015)</span><p class="item-comment">里番性质</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">夜晚的水母不会游泳</strong><span class="item-rating">- 评分: 3.5/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">夜樱家的大作战</strong><span class="item-rating">- 评分: 4.5/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">愚蠢天使与恶魔共舞</strong><span class="item-rating">- 评分: 4.5/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">挣扎吧，亚当君</strong><span class="item-rating">- 评分: 5/5 (2024)</span><p class="item-comment">里番性质?</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">指尖相触，恋恋不舍</strong><span class="item-rating">- 评分: 4.5/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">治愈魔法的错误使用方法</strong><span class="item-rating">- 评分: 3/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">佐佐木与文鸟小哔</strong><span class="item-rating">- 评分: 4/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">最强肉盾的迷宫攻略</strong><span class="item-rating">- 评分: 3/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">半田君传说</strong><span class="item-rating">- 评分: 2/5 (2016)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">超超超超超喜欢你的100个女朋友</strong><span class="item-rating">- 评分: 4.5/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">电器少女 (网剧)</strong><span class="item-rating">- 评分: 3/5 (2023)</span> <!-- 国创 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">公主恋人</strong><span class="item-rating">- 评分: 4/5 (2009)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">辉夜大小姐想让我告白 (全系列)</strong><span class="item-rating">- 评分: 5/5 (2019 - 第一季)</span> <!-- 调整年份为系列开始 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">家里蹲吸血姬的苦闷</strong><span class="item-rating">- 评分: 3.5/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">经验丰富的你和经验为零的我交往的故事</strong><span class="item-rating">- 评分: 3/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">境界的彼方</strong><span class="item-rating">- 评分: 4/5 (2013)</span> <!-- TV年份 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">立花馆恋爱三角铃</strong><span class="item-rating">- 评分: 2.5/5 (2018)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">秒杀外挂太强了，异世界的家伙们根本就不是对手。</strong><span class="item-rating">- 评分: 3/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">女友成双 (第一季)</strong><span class="item-rating">- 评分: 4/5 (2021)</span> <!-- 明确是第一季 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">虽然等级只有1级但固有技能是最强的</strong><span class="item-rating">- 评分: 3.5/5 (2023)</span> <!-- 原文件年份 2022 有误 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我们的雨色协议</strong><span class="item-rating">- 评分: 3/5 (2023)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我心里危险的东西 (含第二季)</strong><span class="item-rating">- 评分: 4.8/5 (2023 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">冰菓</strong><span class="item-rating">- 评分: 4/5 (2012)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">从Lv2开始开外挂的前勇者候补过着悠哉异世界生活</strong><span class="item-rating">- 评分: 4.5/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">花野井君和相思病</strong><span class="item-rating">- 评分: 4.5/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">如果有妹妹就好了。</strong><span class="item-rating">- 评分: 4/5 (2017)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">神渴望着游戏</strong><span class="item-rating">- 评分: 3.5/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">无名记忆 (Unnamed Memory)</strong><span class="item-rating">- 评分: 4/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">夜晚游玩生活! (僧侣番)</strong><span class="item-rating">- 评分: 5/5 (2024?)</span><p class="item-comment">里番性质</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">转生贵族靠着鉴定技能一飞冲天</strong><span class="item-rating">- 评分: 3/5 (2024)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">因为不是真正的伙伴而被逐出勇者队伍，流落到边境展开慢活人生</strong> (2021)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">骚动时节的少女们啊。</strong> (2019)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">身为女主角！～被讨厌的女主角和秘密的工作～</strong> (2022)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">下流梗不存在的灰暗世界</strong> (2015)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">笨拙之极的上野</strong> (2019)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">冰属性男子和酷酷女同事</strong> (2023)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">不知内情的转学生不管三七二十一缠了上来。</strong> (2023)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">成神之日</strong> (2020)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">厨病激发BOY</strong> (2019)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">第一次的辣妹</strong> (2017)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">干物妹！小埋</strong> (2015 - 第一季)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">格莱普尼尔</strong> (2020)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">怪怪守护神</strong> (2017 - 第一季)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">狂赌之渊</strong> (2017 - 第一季)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">恋爱FLOPS</strong> (2022)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">龙王的工作！</strong> (2018)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">迷茫管家与懦弱的我</strong> (2011)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">其实，我乃最强？</strong> (2023)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">杀戮天使</strong> (2018)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">圣诞之吻SS / SS+ plus</strong> (2010 - 第一季)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">史上最强大魔王转生为村民A</strong> (2022)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">世界顶尖的暗杀者转生为异世界贵族</strong> (2021)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我说不定连魔王都能干掉。</strong> (2024)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">小小克星！(Little Busters!)</strong> (2012 - 第一季)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">修业魔女璐璐萌</strong> (2014)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">虚构推理</strong> (2020 - 第一季)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">妖幻三重奏</strong> (2023)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">异世界悠闲农家</strong> (2023)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">在世界尽头咏唱恋曲的少女 YU-NO</strong> (2019)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">只要贝尔哲布布大小姐喜欢就好。</strong> (2018)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">只有我能进入的隐藏地下城</strong> (2021)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">罪恶王冠</strong> (2011)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">夏日幽灵 </strong> (2021)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">GAMERS电玩咖！</strong> (2017)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">别当欧尼酱了！</strong> (2023)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">彻夜之歌</strong> (2022)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">川柳少女</strong> (2019)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">敦君与女朋友</strong> (2018)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">夫妇以上，恋人未满。</strong> (2022)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">关于邻家的天使大人不知不觉把我惯成了废人这档子事</strong> (2023)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">继母的拖油瓶是我的前女友</strong> (2022)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">家有女友</strong> (2019)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">崛与宫村 (第一季)</strong> (2021)</li> <!-- 明确是第一季 -->
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">可塑性记忆</strong> (2015)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">来自多彩世界的明天</strong> (2018)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">恋如雨止</strong> (2018)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">魔法少女网站</strong> (2018)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">满脑都是○○的我没办法谈恋爱</strong> (2019)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">品酒要在成为夫妻后</strong> (2017)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">青春期猪头少年不做兔女郎学姐的梦 (TV)</strong> (2018)</li> <!-- 明确是 TV -->
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">擅长捉弄的高木同学 (全系列)</strong> (2018 - 第一季)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">当雏菊邂逅少女</strong> (2021)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">四月是你的谎言</strong> (2014)</li> <!-- 原文件年份 2018 有误 -->
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">86-不存在的战区-</strong> (2021)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">安达与岛村</strong> (2020)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">不要欺负我，长瀞同学 (第一季)</strong> (2021)</li> <!-- 明确是第一季 -->
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">测不准的阿波连同学</strong> (2022)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">纯洁的轮舞曲 (里番)</strong> (XXXX)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">会长是女仆！</strong> (2010)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">握手者 (Hand Shakers)</strong> (2017)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">偶像荣耀 (IDOLY PRIDE)</strong> (2021)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">来自风平浪静的明天</strong> (2013)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">北海道辣妹贼拉可爱</strong> (2024)</li> <!-- 原文件年份 2023 有误 -->
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">被称为废物的原英雄</strong> (2024)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">公主大人，"拷问"的时间到了</strong> (2024)</li> <!-- 原文件年份 2023 有误 -->
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">进化之实～踏上胜利的人生～</strong> (2021)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">外星笔记</strong> (2024)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">王牌酒保 神之杯</strong> (2024)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我们没有羽翼</strong> (2011)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">休假日的坏人先生</strong> (2024)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">被解雇的暗黑士兵（30多岁）开始了慢生活的第二人生</strong> (2023)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">不死不幸</strong> (2023)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">刺客守则</strong> (2019)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">若能与你共乘海浪之上 (剧场版)</strong> (2019)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">不正经的魔术讲师与禁忌教典</strong> (2017)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">老夫老妻重返青春</strong> (2024)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">转生七王子的魔法全解</strong> (2024)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">声优广播的幕前幕后</strong> (2024)</li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">转生成为魔剑了</strong> (2022)</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="category-level-2">
+                            <div class="collapsible-section">
+                                 <h3 class="collapsible-header">
+                                     <span class="toggle-icon">▶</span>
+                                     <a href="#" class="toggle-trigger"><span style="color: #ffac33;">🌟</span> 剧场版动画</a>
+                                 </h3>
+                                 <ul class="item-list collapsible-content" style="display: none;">
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">青春期猪头少年不做怀梦少女的梦 (剧场版)</strong><span class="item-rating">- 评分: 5/5 (2019)</span> <!-- 剧场版年份 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">我想吃掉你的胰脏 (剧场版)</strong><span class="item-rating">- 评分: 5/5 (2018)</span> <!-- 动画电影年份 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">中二病也要谈恋爱！(含剧场版)</strong><span class="item-rating">- 评分: 4/5 (2012 - 第一季)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">从很久以前就喜欢你了。～告白实行委员会～ (剧场版)</strong><span class="item-rating">- 评分: 4/5 (2016)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">你的名字。 (剧场版)</strong><span class="item-rating">- 评分: 5/5 (2016)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">声之形 (剧场版)</strong><span class="item-rating">- 评分: 5/5 (2016)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">天气之子 (剧场版)</strong><span class="item-rating">- 评分: 5/5 (2019)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">言叶之庭 (剧场版)</strong><span class="item-rating">- 评分: 4/5 (2013)</span></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">你好世界 (HELLO WORLD) (剧场版)</strong><span class="item-rating">- 评分: 5/5 (2019)</span> <!-- 原文件年份 2021 有误 --></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">AURA ～魔龙院光牙最后的战斗～ (剧场版)</strong><span class="item-rating">- 评分: 3.5/5 (2013)</span> </li>
+ 
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="category-level-2">
+                            <div class="collapsible-section">
+                                 <h3 class="collapsible-header">
+                                     <span class="toggle-icon">▶</span>
+                                     <a href="#" class="toggle-trigger"><span style="color: #ffac33;">🤩</span> 不可描述动漫</a>
+                                 </h3>
+                                 <ul class="item-list collapsible-content" style="display: none;">
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">缘之空</strong><span class="item-rating">- 评分: 5/5 (2010)</span><p class="item-comment">内容警示！</p></li>
+                                    <li class="list-item completed"><span class="item-status">[补完]</span><strong class="item-title">夫妇联欢～回不去的夜晚～</strong><span class="item-rating">- 评分: 5/5 (- 僧侣番)</span><p class="item-comment">里番性质</p></li>
+   
+                            </section>
+        
+                            <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 40px 0;">
+        
+                            <!-- 补完区域 -->
+                            <div class="collapsible-section directly-collapsible">
+                                <h3 class="collapsible-header">
+                                    <span class="toggle-icon">▶</span>
+                                    <a href="#" class="toggle-trigger">💡 想看 (Plan to Watch)</a>
+                                </h3>
+                                <ul class="item-list collapsible-content" style="display: none;">
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">世界巨星 (World Dai Star)</strong> (2023)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">爱丽丝和特蕾丝的梦幻工厂 (剧场版)</strong> (2023)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">幻日夜羽 -镜中晖光-</strong> (2023)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">灰色的果实 / 迷宫 / 乐园 (系列)</strong> (2014 - 果实)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">狼与香辛料 (旧版 TV)</strong> (2008 - 第一季)</li> <!-- 区分新旧版 -->
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">莉可丽丝 (Lycoris Recoil)</strong> (2022)</li> <!-- 原文件年份 2023 有误 -->
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">魔女之旅</strong> (2020)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">偶像大师 百万现场！</strong> (2023)</li> <!-- TV动画年份 -->
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">破灭之国</strong> (2023)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">天籁人偶 (Prima Doll)</strong> (2022)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">同居人是猫，有时在膝上，有时在头上。</strong> (2019)</li> <!-- 原文件年份 2018 有误 -->
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">卫宫家今天的饭</strong> (2018)</li> <!-- 原文件年份 2024 有误 -->
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">贤者之孙</strong> (2019)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">想当冒险者的女儿到首都当了等级S的冒险者</strong> (2023)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">消灭都市</strong> (2019)</li> <!-- 原文件年份 2015 有误 -->
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">组长女儿与照料专员</strong> (2022)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">精灵幻想记</strong> (2021)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">夏日重现</strong> (2022)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">我们的重制人生</strong> (2021)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">萤火之森 (剧场版)</strong> (2011)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">草裙舞 Hula Fulla Dance (剧场版)</strong> (2021)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">通往夏天的隧道，再见的出口 (剧场版)</strong> (2022)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">爆肝工程师的异世界狂想曲</strong> (2017)</li> <!-- 年份在已看完那边，但这里没评分就算想看 -->
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">怪异少女神隐</strong> (2024)</li> <!-- 原文件年份 2023 有误 -->
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">你是彼方</strong> (2020)</li>
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">致深爱你的那个我 / 致我深爱的每个你 (剧场版)</strong> (2022)</li> <!-- 两部一起算 -->
+                                    <li class="list-item planned"><span class="item-status">[想看]</span><strong class="item-title">路人女主的养成方法</strong> ( 2015)</li>
+
+                                </ul>
+                            </div>      
+                            </section>
+        
+                    <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 40px 0;">
+
+                    <section class="list-section game-list">
+                        <h2>🎮 游戏 (Game)</h2>
+                        <p>记录正在玩、已通关和想玩的游戏~</p>
+                    
+                        <!-- 折叠的二级分类：正在玩 -->
+                        <div class="category-level-2">
+                            <div class="collapsible-section">
+                                <h3 class="collapsible-header">
+                                    <span class="toggle-icon">▶</span>
+                                    <a href="#" class="toggle-trigger">🕹️ 进行中 (Playing)</a>
+                                </h3>
+                                <ul class="item-list collapsible-content" style="display: none;">
+                                    <li class="list-item playing">
+                                        <span class="item-status">[进行中]</span>
+                                        <strong class="item-title">[约战：精灵再临]</strong>
+                                        <span class="item-platform">[大凉山]</span>
+                                        <p class="item-comment">[太肝了但停不下来！]</p>
+                                    </li>
+                                    <!-- 在这里添加更多正在玩的游戏 -->
+                                </ul>
+                            </div>
+                        </div>
+                    
+                        <!-- 折叠的二级分类：已完成/弃坑 -->
+                        <div class="category-level-2">
+                             <div class="collapsible-section">
+                                <h3 class="collapsible-header">
+                                    <span class="toggle-icon">▶</span>
+                                    <a href="#" class="toggle-trigger">🏆 已通关/弃坑 (Finished/Dropped)</a>
+                                </h3>
+                                <ul class="item-list collapsible-content" style="display: none;">
+                                     <li class="list-item completed">
+                                         <span class="item-status">[已通关]</span>
+                                         <strong class="item-title">[FoxHimeZero]</strong>
+                                         <span class="item-platform">[Steam]</span>
+                                         <span class="item-rating">[强烈推荐，非常好的一个galgame]</span>
+                                         <p class="item-comment">[あいしてる]</p>
+                                     </li>
+                                      <li class="list-item dropped"> <!-- 可以为弃坑定义一个 dropped 类和样式 -->
+                                          <span class="item-status" style="background-color: #aaa;">[已弃坑]</span> <!-- 简单示例样式 -->
+                                          <strong class="item-title">[王者荣耀]</strong>
+                                          <span class="item-platform">[腾讯]</span>
+                                          <p class="item-comment">[弃坑原因：每把都是1VS9]</p>
+                                      </li>
+                                     <!-- 在这里添加更多已完成或弃坑的游戏 -->
+                                </ul>
+                            </div>
+                        </div>
+                    
+                        <!-- 折叠的二级分类：愿望单 -->
+                        <div class="category-level-2">
+                             <div class="collapsible-section">
+                                <h3 class="collapsible-header">
+                                    <span class="toggle-icon">▶</span>
+                                    <a href="#" class="toggle-trigger">🛒 愿望单 (Wishlist)</a>
+                                </h3>
+                                <ul class="item-list collapsible-content" style="display: none;">
+                                     <li class="list-item planned">
+                                         <span class="item-status">[想玩]</span>
+                                         <strong class="item-title">[镜花饴情·Mirage Sugar Acacia]</strong>
+                                         <span class="item-platform">[Steam]</span>
+                                         <p class="item-comment">[期待！等打折/有空就入！]</p>
+                                     </li>
+                                     <!-- 在这里添加更多想玩的游戏 -->
+                                </ul>
+                            </div>
+                        </div>
+                    
+                    </section>
+                    
+
+<hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 40px 0;">
+
+<!-- 漫画/轻小说/书籍区域 -->
+<section class="list-section book-list">
+    <h2>📖 阅读 (Manga/LN/Book)</h2>
+    <p>记录正在看和补完的书~</p>
+
+     <!-- 折叠的二级分类：正在读 -->
+    <div class="category-level-2">
+         <div class="collapsible-section">
+            <h3 class="collapsible-header">
+                <span class="toggle-icon">▶</span>
+                <a href="#" class="toggle-trigger">👓 阅读中 (Reading)</a>
+            </h3>
+             <ul class="item-list collapsible-content" style="display: none;">
+                <li class="list-item reading">
+                    <span class="item-status">[阅读中]</span>
+                    <strong class="item-title">[宋词300首品读]</strong> - <span class="item-author">[方智范]</span>
+                    <p class="item-comment">[枝上柳绵吹又少，天涯何处无芳草]</p>
+                </li>
+                 <!-- 添加更多正在读的... -->
+            </ul>
+        </div>
+    </div>
+
+     <!-- 折叠的二级分类：已读完 -->
+    <div class="category-level-2">
+         <div class="collapsible-section">
+             <h3 class="collapsible-header">
+                 <span class="toggle-icon">▶</span>
+                 <a href="#" class="toggle-trigger">✅ 已读完 (Completed)</a>
+             </h3>
+             <ul class="item-list collapsible-content" style="display: none;">
+                  <li class="list-item completed">
+                      <span class="item-status">[已读完]</span>
+                      <strong class="item-title">[樱花树下]</strong> - <span class="item-author">[渡边淳一 · 日]</span>
+                      <p class="item-comment">[这是直击灵魂的，关于性与人生的书]</p>
+                  </li>
+                  <!-- 添加更多已读完的... -->
+             </ul>
+         </div>
+     </div>
+
+      <!-- 折叠的二级分类：想读 -->
+     <div class="category-level-2">
+          <div class="collapsible-section">
+              <h3 class="collapsible-header">
+                  <span class="toggle-icon">▶</span>
+                  <a href="#" class="toggle-trigger">📚 想读 (Plan to Read)</a>
+              </h3>
+              <ul class="item-list collapsible-content" style="display: none;">
+                   <li class="list-item planned">
+                       <span class="item-status">[想读]</span>
+                       <strong class="item-title">[我的青春恋爱物语果然有问题。]</strong> - <span class="item-author">[わたり わたる]</span>
+                   </li>
+                   <!-- 添加更多想读的... -->
+              </ul>
+          </div>
+      </div>
+</section>
+<hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 40px 0;">
+
+<!-- 音乐区 (带折叠二级菜单) -->
+<section class="list-section music-list">
+    <h2>🎶 循环歌单 (Music)</h2>
+    <p>一些最近常听或特别喜欢的歌曲/专辑/OST~</p>
+
+    <!-- 折叠的二级分类：动画歌曲 (Anisong) -->
+    <div class="category-level-2">
+        <div class="collapsible-section">
+            <h3 class="collapsible-header">
+                <span class="toggle-icon">▶</span>
+                <a href="#" class="toggle-trigger">🎤 Anisong</a>
+            </h3>
+            <ul class="item-list collapsible-content" style="display: none;">
+                <!-- !!! 手动添加 Anisong 列表项 !!! -->
+                <li class="list-item">
+                    <strong class="item-title">[鼓動]</strong> - <span class="item-artist">[神楽 七奈]</span>
+                    <p class="item-comment">(出自《探偵はもう、死んでいる。（侦探已死)》ED</p>
+                </li>
+                <!-- ... -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- 折叠的二级分类：游戏音乐 (Game OST) -->
+    <div class="category-level-2">
+        <div class="collapsible-section">
+            <h3 class="collapsible-header">
+                <span class="toggle-icon">▶</span>
+                <a href="#" class="toggle-trigger">🎮 Game OST</a>
+            </h3>
+            <ul class="item-list collapsible-content" style="display: none;">
+                 <!-- !!! 手动添加游戏音乐列表项 !!! -->
+                <li class="list-item">
+                    <strong class="item-title">[醉赤壁]</strong>- <span class="item-artist">[林俊杰]</span>
+                    <p class="item-comment">(出自《赤壁》)</p>
+                </li>
+                <!-- ... -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- 折叠的二级分类：其他喜欢的 (J-Pop/etc.) -->
+    <div class="category-level-2">
+         <div class="collapsible-section">
+            <h3 class="collapsible-header">
+                <span class="toggle-icon">▶</span>
+                <a href="#" class="toggle-trigger">🎧 其他 (J-Pop/etc.)</a>
+            </h3>
+            <ul class="item-list collapsible-content" style="display: none;">
+                 <!-- !!! 手动添加其他音乐列表项 !!! -->
+                <li class="list-item">
+                    <strong class="item-title">[发如雪]</strong> - <span class="item-artist">[周杰伦]</span>
+                    <p class="item-comment">专辑：《十一月的肖邦》</p>
+                </li>
+                <!-- ... -->
+            </ul>
+        </div>
+    </div>
+
+     <!-- 你可以根据需要调整或增删这些二级分类 -->
+
+</section>
+</div>
+</article>
+
+</main> <!-- /.content-main -->
+
+        <!-- 侧边栏 (可以和主页保持一致) -->
+        <aside class="sidebar">
+            <div class="widget about-me-widget">
+                <h3 class="widget-title">关于博主</h3>
+                <img src="images/dfj.webp" alt="东风夹" class="sidebar-avatar">
+                <p>嗨！这里是东风夹！<br>ACGN 爱好者 & 前端学习中~</p>
+                <a href="about.html">了解更多...</a>
+            </div>
+            <div class="widget clock-widget anime-style"> <!-- 这是最外层的容器 -->
+
+                <h3 class="widget-title">
+                    <span class="icon">💖</span>
+                    次元时间流
+                    <span class="icon">✨</span>
+                </h3>
+        
+                <div id="clock-display" class="clock-time"> <!-- 这是显示 HH:MM:SS 的容器 -->
+                    <span class="hour">--</span>
+                    <span class="separator">:</span>
+                    <span class="minute">--</span>
+                    <span class="separator">:</span>
+                    <span class="second">--</span>
+                </div>
+        
+                <!-- !!! 确保这个 div 在 widget 内部，clock-time 之后 !!! -->
+                <div class="clock-details">
+                    <span id="clock-weekday" class="weekday">---</span>
+                    <span id="clock-ampm" class="ampm">--</span>
+                </div>
+                <!-- !!! 确保它在这里 !!! -->
+        
+            </div> <!-- 这是最外层容器的结束标签 -->
+            <!-- 随机古诗小部件 -->
+            <div class="widget poem-widget">
+                <h3 class="widget-title">古诗美韵 🍃</h3> <!-- 或者用其他图标 -->
+                <div class="poem-content">
+                    <p id="poem-sentence" class="sentence">...</p> <!-- 显示诗句 -->
+                    <p id="poem-info" class="info">—— 《...》 ...</p> <!-- 显示作者和题目 -->
+                </div>
+                <!-- (可选) 添加一个刷新按钮 -->
+                <button id="refresh-poem-btn">换一句</button>
+            </div>
+        
+            <div class="widget fortune-widget">
+                <h3 class="widget-title">今日运势/心情</h3>
+                <p id="fortune-text">加载中...</p>
+            </div>
+
+            <!-- (待办) 社群小部件 -->
+            <div class="widget community-widget">
+                <h3 class="widget-title">常驻基地</h3>
+                <p>QQ群: <a href="https://qm.qq.com/q/xvfuW5S22s" target="_blank">796696625</a></p>
+                <!-- 或者使用更完整的加群链接格式 -->
+                <!-- <p>QQ群: <a href="https://qm.qq.com/q/xvfuW5S22s" target="_blank">796696625</a></p> -->
+           </div>
+
+<!-- 追番/游戏列表小部件 -->
+<div class="widget list-widget">
+    <h3 class="widget-title">当前状态 OwO</h3> <!-- 标题也可以改得可爱点 -->
+    <ul>
+        <li>🎬 正在追：《男女之间的友情存在吗？（不，不存在!!）》</li>
+        <li>🎮 沉迷中：《约战：精灵再临》</li>
+        <li>📖 慢慢看：《唐诗·宋词300首》</li>
+        <li>🎶 单曲循环：《当你》 - [林俊杰]</li>
+        <!-- 你可以根据自己的情况添加或删除列表项 -->
+        <li>🤔 思考中：人生... (开玩笑的)</li>
+    </ul>
+     <!-- 这个链接可以指向你未来可能创建的更详细的列表页面 -->
+     <a href="lists.html">查看我的更多收藏 »</a>
+     <!-- 如果暂时不打算做详细列表页，也可以直接注释掉或删除这行 -->
+</div>
+        </aside> <!-- /.sidebar -->
+
+    </div> <!-- /.main-content-area -->
+
+    <!-- 页脚 (和 blog.html 一致) -->
+    <footer class="site-footer">
+        <div class="footer-content container">
+            <p>© 2024 东风夹 | 由热爱驱动 ❤️</p>
+            <p>Powered by GitHub Pages</p>
+        </div>
+    </footer>
+
+    <!-- 固定元素 (和 blog.html 一致) -->
+    <button id="back-to-top" title="回到顶部">🔝</button>
+
+
+    <!-- 引入 JS 文件 (和 blog.html 一致) -->
+    <script src="js/fuse.min.js"></script>  
+    <script src="js/search.js"></script>
+    <script src="js/blog.js"></script> <!-- 确保路径正确 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+</body>
+</html>

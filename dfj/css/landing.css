@@ -1,0 +1,96 @@
+/* --- 全局和基础设置 --- */
+body, html {
+    margin: 0; /* 移除浏览器默认外边距 */
+    padding: 0; /* 移除浏览器默认内边距 */
+    height: 100%; /* 让 html 和 body 占满整个视口高度 */
+    overflow: hidden; /* 隐藏滚动条, 因为入口页通常不需要滚动 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 设置一个基础字体, 后面可以引入更二次元的字体 */
+    /* 如果有通用字体设置，可以在 common.css 定义 */
+}
+
+/* --- 主要容器样式 --- */
+.landing-container {
+    display: flex; /* 使用 Flexbox 布局, 方便居中 */
+    flex-direction: column; /* 垂直排列子元素 (头像在上, 按钮在下) */
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    height: 100%; /* 容器高度占满父元素 (即 body) */
+    text-align: center; /* 辅助文本居中 */
+
+    /* --- 核心：粉粉嫩嫩渐变背景 --- */
+    /* 从柔和的粉色渐变到更浅的粉色或白色调 */
+    background: linear-gradient(135deg, #ffe4e1 0%, #ffc0cb 100%); /* MistyRose to LightPink */
+    /* 备选方案 (可以取消注释试试): */
+    /* background: linear-gradient(135deg, #ffdde1 0%, #ffb3c1 100%); */ /* 稍微深一点的粉 */
+    /* background: linear-gradient(to top, #ffefba 0%, #ffffff 100%); */ /* 暖黄到白 */
+    /* background: linear-gradient(120deg, #fccb90 0%, #ffdee9 100%); */ /* 桃子色到粉 */
+
+    /* 添加一个微妙的背景纹理 (可选, 需要图片) */
+    /* background-image: url('../images/bg-pattern-light.png'), linear-gradient(135deg, #ffe4e1 0%, #ffc0cb 100%); */
+    /* background-repeat: repeat; */
+}
+
+/* --- 头像样式 --- */
+.avatar-wrapper {
+    margin-bottom: 40px; /* 头像和按钮之间的间距 */
+}
+
+.avatar-image {
+    width: 160px; /* 头像宽度 */
+    height: 160px; /* 头像高度 */
+    border-radius: 50%; /* 关键：实现圆形头像 */
+    object-fit: cover; /* 保证图片不变形地填充区域 */
+
+    /* 添加可爱的边框 */
+    border: 6px solid rgba(255, 255, 255, 0.9); /* 半透明白色边框 */
+    /* 或者淡粉色边框: border: 6px solid #ffd1dc; */
+
+    /* 添加柔和的阴影 */
+    box-shadow: 0 8px 25px rgba(255, 99, 132, 0.2); /* 粉色调的阴影 */
+
+    /* 添加鼠标悬浮效果 */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease-out; /* 平滑过渡, 带一点回弹效果 */
+}
+
+.avatar-image:hover {
+    transform: scale(1.08) rotate(5deg); /* 悬浮时稍微放大并倾斜一点点 */
+    box-shadow: 0 12px 35px rgba(255, 99, 132, 0.3); /* 阴影变大变深 */
+}
+
+/* --- 进入按钮样式 --- */
+.enter-btn {
+    padding: 15px 45px; /* 按钮内边距, 控制大小 */
+    font-size: 1.2em; /* 字体大小 */
+    font-weight: bold; /* 字体加粗 */
+    color: white; /* 文字颜色 */
+    letter-spacing: 3px; /* 文字间距 */
+
+    /* 按钮背景颜色 - 选择一个明亮但不刺眼的粉色 */
+    background-color: #FF6384; /* 一个比较好的粉红色 */
+    /* 备选粉色: #FFB6C1 (LightPink), #FFA07A (LightSalmon - 偏橙) */
+    /* 也可以用渐变背景 */
+    /* background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%); */
+
+    border: none; /* 移除默认边框 */
+    border-radius: 50px; /* 超大圆角, 胶囊形状 */
+    cursor: pointer; /* 鼠标变成小手 */
+
+    /* 按钮阴影 */
+    box-shadow: 0 5px 15px rgba(255, 99, 132, 0.4);
+
+    /* 过渡效果 - 让悬浮和点击更平滑 */
+    transition: all 0.3s ease;
+}
+
+.enter-btn:hover {
+    background-color: #FF476A; /* 悬浮时颜色变深一点 */
+    /* background-image: none; */ /* 如果用了渐变背景, 悬浮时可能需要取消 */
+    box-shadow: 0 8px 20px rgba(255, 71, 106, 0.5); /* 阴影变明显 */
+    transform: translateY(-4px) scale(1.03); /* 轻微上移并放大 */
+}
+
+.enter-btn:active {
+    background-color: #E0405D; /* 点击时颜色再深一点 */
+    box-shadow: 0 3px 10px rgba(255, 71, 106, 0.3); /* 阴影变小 */
+    transform: translateY(-1px) scale(1.01); /* 轻微下压 */
+}

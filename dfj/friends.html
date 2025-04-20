@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>友情链接 | 东风夹の秘密基地</title> <!-- 页面标题 -->
+
+    <!-- !!! 路径是相对于根目录 !!! -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <!-- (可选) 为友链页单独创建 CSS -->
+    <!-- <link rel="stylesheet" href="css/theme-christmas.css"> -->
+    <link rel="stylesheet" href="css/friends.css">
+
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico"> -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"> <!-- 假设你准备了 32x32 的 PNG -->
+</head>
+<body class="theme-light"> <!-- 主题类 -->
+
+    <!-- 页头 (和 blog.html 保持一致) -->
+    <header class="site-header">
+        <div class="header-content container">
+            <div class="site-branding">
+                <h1 class="site-title"><a href="blog.html">东风夹の秘密基地</a></h1>
+                <p class="site-description">记录美好与代码的次元碎片 (≧∇≦)/</p>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="blog.html">首页</a></li>
+                    <li><a href="archives.html">归档</a></li>
+                    <li><a href="tags.html">标签</a></li>
+                    <li><a href="categories.html">文章分类</a></li>
+                    <li><a href="lists.html">收藏夹</a></li>
+                    <li><a href="friends.html" class="current-menu-item">友链</a></li> <!-- 当前页面高亮 -->
+                    <li><a href="about.html">关于我</a></li>
+                </ul>
+            </nav>
+            <div class="header-widgets">
+                <div class="search-widget with-icon"> <!-- 添加 with-icon 类 -->
+                    <input type="search" id="search-input" placeholder="搜索文章..." class="search-input" disabled>
+                    <!-- 按钮不再需要文字，只保留图标，并可能需要调整 class -->
+                    <button id="search-button" class="search-button-icon" aria-label="搜索" disabled>🔍</button>
+                </div>
+
+                <button id="theme-switcher" aria-label="切换主题">🌙</button>
+                <!-- <button id="random-post-btn" aria-label="随机文章">🎲</button> -->
+            </div>
+        </div>
+        <div id="search-results-container" style="display: none; margin-top: 20px; padding: 20px; background-color: var(--card-bg-color); border-radius: 8px; box-shadow: 0 3px 10px var(--shadow-color);">
+            <h3>搜索结果:</h3>
+            <ul id="search-results-list"></ul>
+            <p id="search-no-results" style="display: none; color: var(--text-light-color);">没有找到相关内容哦~</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <div class="main-content-area container">
+
+        <!-- "友情链接" 的主内容区 -->
+        <main class="content-main friends-page"> <!-- 可以加个 friends-page 类 -->
+
+            <article class="friends-content post-full"> <!-- 借用文章页卡片样式 -->
+                <header class="post-header-full">
+                    <h1 class="post-title-full">小伙伴们的秘密基地 🚀</h1>
+                </header>
+
+                <div class="post-content-full">
+
+                    <!-- 友链申请说明 (可选) -->
+                    <section class="apply-info">
+                        <h2>交换友链</h2>
+                        <p>欢迎各位小伙伴来交换友链！ヾ(≧▽≦*)o</p>
+                        <p>如果你也喜欢 ACGN、代码或者生活分享，并且博客内容健康、积极向上，可以通过<a href="about.html">“关于我”</a>页面里的联系方式找到我。</p>
+                        <p>申请前请先将本站链接添加到你的网站哦~</p>
+                        <ul>
+                            <li><strong>名称：</strong> 东风夹の秘密基地</li>
+                            <li><strong>网址：</strong>暂无</li> <!-- !!! 替换成你的博客地址 !!! -->
+                            <li><strong>描述：</strong> 记录美好与代码的次元碎片~</li>
+                            <li><strong>Logo：</strong><img src="images/favicon-32x32.png" alt="[朋友昵称] Logo" class="friend-logo"></li> <!-- !!! 替换成你的头像或 Logo 地址 !!! -->
+                        </ul>
+                    </section>
+
+                    <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 40px 0;">
+
+                    <!-- 友链列表 -->
+                    <section class="friends-list">
+                        <h2>传送门</h2>
+                        <div class="friend-cards-container">
+
+                            <!-- 单个友链卡片 - 示例 1 -->
+                            <div class="friend-card">
+                                <a href="https://www.123865.com/s/vtslVv-2DMU3" target="_blank" class="friend-link">
+                                    <!-- !!! 替换 Logo 路径 !!! -->
+                                    <img src="images/gallery/ynlian.png" alt="[朋友昵称] Logo" class="friend-logo">
+                                    <div class="friend-info">
+                                        <!-- !!! 替换朋友昵称 !!! -->
+                                        <h3 class="friend-name">[羽の恋]</h3>
+                                        <!-- !!! 替换朋友博客描述 !!! -->
+                                        <p class="friend-description">[东风夹自己写的游戏：未完成版]</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- 单个友链卡片 - 示例 2 -->
+                            <div class="friend-card">
+                                <a href="[另一个朋友博客地址]" target="_blank" class="friend-link">
+                                     <!-- !!! 如果对方没有 Logo，可以用默认图或隐藏 img 标签 -->
+                                    <img src="images/gallery/lyy1.webp" alt="[另一个朋友昵称] Logo" class="friend-logo">
+                                    <div class="friend-info">
+                                        <h3 class="friend-name">[暂无]</h3>
+                                        <p class="friend-description">[暂无]</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- 在这里继续添加更多友链卡片... -->
+
+                        </div> <!-- .friend-cards-container 结束 -->
+                    </section>
+
+                </div>
+            </article>
+
+        </main> <!-- /.content-main -->
+
+        <!-- 侧边栏 (可以和主页保持一致) -->
+        <aside class="sidebar">
+            <div class="widget clock-widget anime-style"> <!-- 这是最外层的容器 -->
+
+                <h3 class="widget-title">
+                    <span class="icon">💖</span>
+                    次元时间流
+                    <span class="icon">✨</span>
+                </h3>
+        
+                <div id="clock-display" class="clock-time"> <!-- 这是显示 HH:MM:SS 的容器 -->
+                    <span class="hour">--</span>
+                    <span class="separator">:</span>
+                    <span class="minute">--</span>
+                    <span class="separator">:</span>
+                    <span class="second">--</span>
+                </div>
+        
+                <!-- !!! 确保这个 div 在 widget 内部，clock-time 之后 !!! -->
+                <div class="clock-details">
+                    <span id="clock-weekday" class="weekday">---</span>
+                    <span id="clock-ampm" class="ampm">--</span>
+                </div>
+                <!-- !!! 确保它在这里 !!! -->
+        
+            </div> <!-- 这是最外层容器的结束标签 -->
+            <!-- 随机古诗小部件 -->
+            <div class="widget poem-widget">
+                <h3 class="widget-title">古诗美韵 🍃</h3> <!-- 或者用其他图标 -->
+                <div class="poem-content">
+                    <p id="poem-sentence" class="sentence">...</p> <!-- 显示诗句 -->
+                    <p id="poem-info" class="info">—— 《...》 ...</p> <!-- 显示作者和题目 -->
+                </div>
+                <!-- (可选) 添加一个刷新按钮 -->
+                <button id="refresh-poem-btn">换一句</button>
+            </div>
+        
+            <div class="widget fortune-widget">
+                <h3 class="widget-title">今日运势/心情</h3>
+                <p id="fortune-text">加载中...</p>
+            </div>
+
+            <!-- (待办) 社群小部件 -->
+            <div class="widget community-widget">
+                <h3 class="widget-title">常驻基地</h3>
+                <p>QQ群: <a href="https://qm.qq.com/q/xvfuW5S22s" target="_blank">796696625</a></p>
+                <!-- 或者使用更完整的加群链接格式 -->
+                <!-- <p>QQ群: <a href="https://jq.qq.com/?_wv=1027&k=你的加群key" target="_blank">796696625</a></p> -->
+           </div>
+
+<!-- 追番/游戏列表小部件 -->
+<div class="widget list-widget">
+    <h3 class="widget-title">当前状态 OwO</h3> <!-- 标题也可以改得可爱点 -->
+    <ul>
+        <li>🎬 正在追：《男女之间的友情存在吗？（不，不存在!!）》</li>
+        <li>🎮 沉迷中：《约战：精灵再临》</li>
+        <li>📖 慢慢看：《唐诗·宋词300首》</li>
+        <li>🎶 单曲循环：《当你》 - [林俊杰]</li>
+        <!-- 你可以根据自己的情况添加或删除列表项 -->
+        <li>🤔 思考中：人生... (开玩笑的)</li>
+    </ul>
+     <!-- 这个链接可以指向你未来可能创建的更详细的列表页面 -->
+     <a href="lists.html">查看我的更多收藏 »</a>
+     <!-- 如果暂时不打算做详细列表页，也可以直接注释掉或删除这行 -->
+</div>
+        </aside> <!-- /.sidebar -->
+
+    </div> <!-- /.main-content-area -->
+
+    <!-- 页脚 (和 blog.html 一致) -->
+    <footer class="site-footer">
+        <div class="footer-content container">
+            <p>© 2024 东风夹 | 由热爱驱动 ❤️</p>
+            <p>Powered by GitHub Pages</p>
+        </div>
+    </footer>
+
+    <!-- 固定元素 (和 blog.html 一致) -->
+    <button id="back-to-top" title="回到顶部">🔝</button>
+
+
+    <!-- 引入 JS 文件 (和 blog.html 一致) -->
+    <script src="js/fuse.min.js"></script>  
+    <script src="js/search.js"></script>
+    <script src="js/blog.js"></script> <!-- 确保路径正确 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+</body>
+</html>

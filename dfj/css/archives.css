@@ -1,0 +1,167 @@
+/* 文件: css/archives.css */
+
+.archives-page .post-full {
+    padding-bottom: 40px; /* 给底部留点空间 */
+}
+
+/* 错误信息样式 */
+.error-message {
+    background-color: #fff5f5;
+    border-left: 4px solid #ff4d4f;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 0 4px 4px 0;
+}
+
+.error-message h3 {
+    color: #cf1322;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.error-message h4 {
+    color: #cf1322;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.error-message ul {
+    margin-top: 5px;
+}
+
+.error-message li {
+    margin-bottom: 10px;
+}
+
+.error-message small {
+    color: #666;
+    font-style: italic;
+}
+
+/* 在深色模式下调整错误信息样式 */
+.theme-dark .error-message {
+    background-color: rgba(255, 77, 79, 0.1);
+    border-left-color: #ff7875;
+}
+
+.theme-dark .error-message h3,
+.theme-dark .error-message h4 {
+    color: #ff7875;
+}
+
+.theme-dark .error-message small {
+    color: #aaa;
+}
+
+/* 折叠菜单样式 */
+.archive-accordion {
+    width: 100%;
+}
+
+.archive-year-item, .archive-month-item {
+    margin-bottom: 10px;
+}
+
+.collapsible-header {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.archive-year {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.archive-month {
+    font-size: 1.3rem;
+    color: var(--heading-color);
+    margin-left: 10px; /* 稍微缩进 */
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 20px; /* 增加左内边距，从15px改为20px，为图标留更多空间 */
+}
+
+/* 折叠图标样式 */
+.toggle-icon {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 0.8em;
+    line-height: 1;
+    color: var(--accent-color);
+}
+
+.toggle-trigger {
+    color: inherit;
+    text-decoration: none;
+}
+
+.toggle-trigger:hover {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+/* 给月份加个小装饰 */
+.archive-month::before {
+    content: '📅'; /* 或者用其他图标 */
+    position: absolute;
+    left: -10px; /* 将图标向左移动更多，从-5px改为-10px */
+    top: 1px;
+    font-size: 0.9em;
+    color: var(--accent-color);
+    margin-right: 8px; /* 添加右边距，进一步增加与文字的间距 */
+}
+
+/* 内容区域样式 */
+.year-content {
+    margin-left: 15px;
+    padding-left: 15px;
+    border-left: 2px solid var(--border-color);
+}
+
+.archive-list {
+    list-style: none;
+    padding-left: 30px; /* 列表缩进 */
+    margin-left: 10px;
+    border-left: 2px solid var(--border-color); /* 左侧时间线 */
+}
+
+.archive-list li {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+/* 给列表项加个小圆点 */
+.archive-list li::before {
+    content: '';
+    position: absolute;
+    left: -36px; /* 调整位置对齐左侧线 */
+    top: 8px; /* 垂直居中 */
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* 展开/折叠的过渡效果 */
+.collapsible-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.archive-date {
+    display: inline-block;
+    width: 50px; /* 固定日期宽度 */
+    color: var(--text-light-color);
+    font-size: 0.85rem;
+    margin-right: 10px;
+}
+
+.archive-list a {
+    font-size: 1rem;
+    /* 可以加个悬浮下划线效果 */
+}

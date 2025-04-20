@@ -1,0 +1,221 @@
+/* --- CSS Reset (简化版) --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* 让元素的 width 和 height 包含 padding 和 border */
+    margin: 0;
+    padding: 0;
+}
+
+/* --- HTML & Body 基础 --- */
+html {
+    font-size: 16px; /* 定义根字体大小，方便使用 rem 单位 */
+    scroll-behavior: smooth; /* 让页内锚点跳转更平滑 */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+        Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol'; /* 优先使用系统字体, 保证兼容性和速度 */
+    /* 后续可以在 blog.css 或引入特定字体文件来覆盖成更二次元的字体 */
+    line-height: 1.6; /* 设置合适的行高，提高可读性 */
+    background-color: var(--bg-color); /* 使用 CSS 变量定义背景色 */
+    color: var(--text-color); /* 使用 CSS 变量定义文字颜色 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 为主题切换添加过渡效果 */
+}
+
+/* --- 主题颜色变量 (亮色主题) --- */
+/* 定义在 :root (即 html 元素) 上，方便全局访问 */
+:root {
+    --primary-color: #ff87ab; /* 主题粉色 (稍微亮一点的粉) */
+    --secondary-color: #ffb3c1; /* 辅助粉色 (更浅) */
+    --accent-color: #ffaec0; /* 点缀色 (接近樱花粉) */
+    --bg-color: #fff5f7; /* 背景色 (非常浅的粉白色) */
+    --card-bg-color: #ffffff; /* 卡片/容器背景色 (纯白) */
+    --text-color: #555; /* 主要文字颜色 (深灰色，比纯黑柔和) */
+    --text-light-color: #888; /* 浅色文字 (如元信息) */
+    --heading-color: #e85d88; /* 标题颜色 (更深的粉色) */
+    --link-color: var(--primary-color); /* 链接颜色 */
+    --link-hover-color: #ff6384; /* 链接悬浮颜色 (更深的粉) */
+    --border-color: #ffe4e9; /* 边框颜色 (非常浅的粉色) */
+    --shadow-color: rgba(255, 135, 171, 0.15); /* 阴影颜色 (带粉色调的半透明) */
+    --button-bg: var(--primary-color);
+    --button-text: white;
+    --button-hover-bg: var(--link-hover-color);
+}
+
+/* --- 暗色主题变量 (先定义好，由 JS 切换 body class 来应用) --- */
+body.theme-dark {
+    --primary-color: #f3a0bd; /* 暗色下的粉色可以亮一些 */
+    --secondary-color: #e88fac;
+    --accent-color: #f09ab8;
+    --bg-color: #2c2527; /* 深色背景 (带一点点粉/紫调) */
+    --card-bg-color: #3a3133; /* 暗色卡片背景 */
+    --text-color: #e1d4d7; /* 暗色下的浅色文字 */
+    --text-light-color: #b0a4a7;
+    --heading-color: var(--primary-color); /* 标题用亮粉色 */
+    --link-color: var(--primary-color);
+    --link-hover-color: #f7b8ce;
+    --border-color: #4a4143;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --button-bg: var(--primary-color);
+    --button-text: #3a3133; /* 暗色按钮文字可以是深色 */
+    --button-hover-bg: var(--link-hover-color);
+    
+}
+
+
+/* --- 基础排版 --- */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    margin-bottom: 0.8em;
+    line-height: 1.3;
+    font-weight: 600; /* 标题加粗一点 */
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: 1.2em;
+}
+
+ul, ol {
+    margin-left: 1.5em;
+    margin-bottom: 1.2em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none; /* 移除默认下划线 */
+    transition: color 0.2s ease-out;
+}
+
+a:hover,
+a:focus {
+    color: var(--link-hover-color);
+    text-decoration: underline; /* 悬浮时显示下划线 */
+}
+
+/* --- 布局辅助 --- */
+.container {
+    max-width: 1100px; /* 设置内容最大宽度 */
+    margin-left: auto; /* 自动外边距实现水平居中 */
+    margin-right: auto;
+    padding-left: 20px; /* 左右留白，防止内容贴边 */
+    padding-right: 20px;
+}
+
+/* --- 响应式图片 --- */
+img {
+    max-width: 100%; /* 图片最大宽度不超过父容器 */
+    height: auto; /* 高度自动缩放保持比例 */
+    display: block; /* 解决图片底部多余空白问题 */
+}
+
+/* --- 基础表单元素美化 --- */
+button,
+input[type='submit'],
+input[type='button'] {
+    cursor: pointer;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border-radius: 20px; /* 圆角按钮 */
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover,
+input[type='submit']:hover,
+input[type='button']:hover {
+    background-color: var(--button-hover-bg);
+}
+
+button:active,
+input[type='submit']:active,
+input[type='button']:active {
+    transform: scale(0.98); /* 点击时轻微缩小 */
+}
+
+input[type='text'],
+input[type='search'],
+input[type='email'],
+textarea {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* 输入框也用圆角 */
+    background-color: var(--card-bg-color); /* 输入框背景 */
+    color: var(--text-color);
+    width: 100%; /* 默认宽度占满父容器，方便控制 */
+}
+
+input:focus,
+textarea:focus {
+    outline: none; /* 移除默认的蓝色外框 */
+    border-color: var(--primary-color); /* 聚焦时边框变粉色 */
+    box-shadow: 0 0 0 3px rgba(255, 135, 171, 0.1); /* 聚焦时添加粉色外阴影 */
+}
+
+
+/* --- 自定义鼠标指针 (占位符) --- */
+/* body { */
+    /* 默认指针 */
+    /* cursor: url('../images/cursor-default.png'), auto; */
+/* } */
+
+/* a:hover, button:hover, input[type=submit]:hover, input[type=button]:hover { */
+    /* 链接和小手指针 */
+    /* cursor: url('../images/cursor-pointer.png'), pointer; */
+/* } */
+
+/* --- 可访问性 :focus-visible 样式 --- */
+/* 为键盘导航用户提供清晰的焦点指示 */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+     outline: 2px solid var(--primary-color);
+     outline-offset: 2px;
+     box-shadow: none; /* 覆盖输入框的聚焦阴影，避免重复 */
+}
+/* 确保html和body元素撑满高度 */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* 主布局容器使用flex布局 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 视口高度 */
+}
+
+/* 主要内容区域设置flex-grow以占据剩余空间 */
+.main-content-area {
+    flex: 1; /* 这会使其占据所有可用空间 */
+}
+
+/* 页脚样式保持不变 */
+.site-footer {
+    /* 你现有的页脚样式 */
+    width: 100%;
+    padding: 20px 0;
+    background-color: var(--footer-bg-color);
+    /* 其他样式... */
+}
+
+/* --- 页面切换特效基础 (可选, 配合 JS) --- */
+/* .page-fade-out { */
+/*     opacity: 0; */
+/*     transition: opacity 0.5s ease-out; */
+/* } */

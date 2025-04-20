@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面找不到了 T_T | 东风夹の秘密基地</title>
+
+    <!-- CSS 引入 -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"> <!-- 假设你准备了 32x32 的 PNG -->
+    <!-- <link rel="stylesheet" href="css/theme-christmas.css"> 可选：节日主题 -->
+    <!-- <link rel="stylesheet" href="css/404.css"> -->
+
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico"> -->
+
+    <style>
+        /* --- 整体页面布局，让 main 可以撑满剩余空间 --- */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%; /* 确保 body 至少和视口一样高 */
+        }
+        .main-content-area.container {
+            flex-grow: 1; /* 让主内容区占据所有剩余垂直空间 */
+            /* --- 新增/修改：使用 Flexbox 将内部的 main 元素居中 --- */
+            display: flex;
+            justify-content: center; /* 水平居中 main 元素 */
+            align-items: center;     /* 垂直居中 main 元素 */
+            /* ------------------------------------------------- */
+            padding-top: 40px; /* 保留一些上下边距，避免紧贴页头页脚 */
+            padding-bottom: 40px;
+        }
+
+        /* --- 错误内容本身的样式 --- */
+        .content-main.error-page-content {
+            text-align: center;
+            padding: 20px; /* 内边距 */
+            max-width: 600px; /* 内容最大宽度，避免太宽 */
+            width: 90%; /* 响应式宽度 */
+            /* 不需要 margin: 0 auto; 了，因为父级 flex 负责居中 */
+        }
+
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            color: var(--heading-color);
+            margin-bottom: 30px;
+        }
+        .error-image {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+        .back-home-link {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+        .back-home-link:hover {
+            background-color: var(--link-hover-color);
+            color: white;
+        }
+    </style>
+</head>
+<body class="theme-light">
+
+    <!-- 页头 -->
+    <header class="site-header">
+        <div class="header-content container">
+            <div class="site-branding">
+                <h1 class="site-title"><a href="blog.html">东风夹の秘密基地</a></h1>
+                <p class="site-description">记录美好与代码的次元碎片 (≧∇≦)/</p>
+            </div>
+            <nav class="main-navigation">
+                 <ul>
+                     <li><a href="blog.html">返回首页</a></li>
+                     <li><a href="archives.html">文章归档</a></li>
+                     <li><a href="about.html">关于我</a></li>
+                 </ul>
+            </nav>
+            <div class="header-widgets">
+                 <button id="theme-switcher" aria-label="切换主题">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <div class="main-content-area container">
+        <!-- "404" 的主内容区 -->
+        <main class="content-main error-page-content">
+             <!-- <img src="images/404-image.png" alt="迷路的插画" class="error-image"> -->
+            <div class="error-code">404</div>
+            <p class="error-message">呜哇！页面好像迷路了... (´･_･`)</p>
+            <p>你要找的页面可能被外星人抓走了，或者只是暂时躲起来了。</p>
+            <a href="blog.html" class="back-home-link">返回秘密基地首页</a>
+        </main>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+         <div class="footer-content container">
+             <p>© 2024 东风夹 | 由热爱驱动 ❤️</p>
+             <p>Powered by GitHub Pages</p>
+         </div>
+    </footer>
+
+    <!-- 固定元素 -->
+    <button id="back-to-top" title="回到顶部">🔝</button>
+
+
+    <!-- JS 引入 -->
+    <script src="js/blog.js"></script>
+
+</body>
+</html>

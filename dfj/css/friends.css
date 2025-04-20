@@ -1,0 +1,104 @@
+/* 文件: css/friends.css */
+
+.friends-page .post-full {
+    /* 可以给友链页面的卡片加点特定样式 */
+}
+
+.apply-info {
+    background-color: var(--bg-color); /* 用浅背景色区分 */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px dashed var(--accent-color); /* 用虚线边框 */
+}
+.apply-info h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+.apply-info ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.9rem;
+}
+.apply-info li {
+    margin-bottom: 8px;
+}
+.apply-info strong {
+    color: var(--heading-color);
+    margin-right: 5px;
+}
+
+.friends-list h2 {
+     font-size: 1.5rem;
+     margin-bottom: 20px;
+     color: var(--primary-color);
+}
+
+.friend-cards-container {
+    display: grid; /* 使用 Grid 布局 */
+    /* 每行显示多少个卡片，可以根据需要调整 */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 自动填充，最小宽度 280px */
+    gap: 25px; /* 卡片之间的间距 */
+}
+
+.friend-card {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    overflow: hidden; /* 防止内容溢出圆角 */
+    box-shadow: 0 3px 10px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.friend-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 135, 171, 0.2);
+}
+
+.friend-link {
+    display: flex; /* Logo 和信息水平排列 */
+    align-items: center; /* 垂直居中 */
+    padding: 15px;
+    text-decoration: none;
+    color: inherit; /* 继承父元素颜色 */
+}
+
+.friend-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* 圆形 Logo */
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid var(--border-color);
+    flex-shrink: 0; /* 防止 Logo 被压缩 */
+    background-color: #eee; /* 备用背景色 */
+}
+
+.friend-info {
+    flex-grow: 1; /* 占据剩余空间 */
+}
+
+.friend-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: var(--heading-color);
+    transition: color 0.2s ease;
+}
+.friend-link:hover .friend-name {
+    color: var(--link-hover-color);
+}
+
+.friend-description {
+    font-size: 0.85rem;
+    color: var(--text-light-color);
+    margin: 0;
+    /* 可以限制行数，超出显示省略号 (需要额外 CSS) */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 最多显示 2 行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.5em; /* 保留两行的高度 */
+}

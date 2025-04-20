@@ -1,0 +1,184 @@
+/* 文件: css/post.css */
+
+/* --- 阅读进度条 --- */
+.reading-progress-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* 进度条高度 */
+    background-color: transparent; /* 容器背景透明 */
+    z-index: 101; /* 比 header 更高，确保在最上面 */
+}
+
+.reading-progress-bar {
+    height: 100%;
+    width: 0%; /* 初始宽度为 0 */
+    background-color: var(--primary-color); /* 使用主题色 */
+    transition: width 0.1s linear; /* 宽度变化时平滑过渡 */
+    border-radius: 0 2px 2px 0; /* 右侧加一点圆角 (可选) */
+}
+
+/* --- 单篇文章页特定样式 --- */
+.post-single {
+    /* 可以为文章主体内容区域添加特定样式 */
+}
+
+.post-full {
+    background-color: var(--card-bg-color);
+    padding: 30px 40px; /* 比预览卡片更大的内边距 */
+    border-radius: 12px;
+    box-shadow: 0 5px 25px var(--shadow-color);
+     border: 1px solid var(--border-color);
+     margin-bottom: 40px; /* 和侧边栏底部留出距离 */
+}
+
+.post-header-full .post-title-full {
+    font-size: 2.4rem; /* 文章标题更大 */
+    margin-bottom: 15px;
+    color: var(--heading-color);
+}
+
+.post-meta-full {
+    color: var(--text-light-color);
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed var(--border-color); /* 分隔线 */
+    padding-bottom: 15px;
+}
+.post-meta-full a { /* 标签链接 */
+     color: var(--text-light-color);
+     text-decoration: underline;
+     text-decoration-style: dotted;
+     text-decoration-color: var(--accent-color);
+}
+ .post-meta-full a:hover {
+     color: var(--link-color);
+     text-decoration-color: var(--link-color);
+ }
+
+
+.post-content-full {
+    font-size: 1.05rem; /* 正文字号稍大 */
+    line-height: 1.7; /* 行高也稍大 */
+}
+
+.post-content-full h2 {
+    font-size: 1.7rem;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3em;
+}
+.post-content-full h3 {
+    font-size: 1.4rem;
+     margin-top: 2em;
+     margin-bottom: 0.8em;
+}
+
+.post-content-full p {
+    margin-bottom: 1.5em;
+}
+
+.post-content-full figure { /* 图片容器 */
+    margin: 2em 0;
+    text-align: center;
+}
+.post-content-full figcaption { /* 图片说明 */
+    font-size: 0.85rem;
+    color: var(--text-light-color);
+    margin-top: 0.5em;
+}
+
+.post-footer-full {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+.like-button-container { /* 让点赞按钮稍微显眼点 */
+    margin-bottom: 30px;
+    text-align: center;
+}
+.like-button-container .like-button { /* 可以放大点赞按钮 */
+     padding: 8px 20px;
+     font-size: 1rem;
+}
+
+.comments-area { /* 评论区 */
+    margin-top: 40px;
+}
+.comments-area h2 {
+    font-size: 1.5rem;
+     border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+     margin-bottom: 20px;
+}
+
+/* 响应式调整 (可选) */
+@media (max-width: 768px) {
+    .post-full {
+        padding: 20px;
+    }
+    .post-header-full .post-title-full {
+        font-size: 2rem;
+    }
+     .post-content-full {
+        font-size: 1rem;
+    }
+}
+/* 文件: css/post.css (或 blog.css) */
+
+/* --- 关联推荐样式 --- */
+.related-posts-widget {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.related-posts-widget .widget-title {
+    font-size: 1.3rem;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    text-align: center; /* 标题居中 */
+}
+.related-posts-widget .widget-title .icon { /* 如果标题有图标 */
+    margin-right: 5px;
+}
+
+#related-posts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid; /* 用 Grid 布局 */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 自动填充列 */
+    gap: 20px; /* 列表项间距 */
+}
+
+#related-posts-list li {
+    margin-bottom: 0; /* 重置默认 li 边距 */
+}
+
+#related-posts-list a {
+    display: block;
+    padding: 15px;
+    background-color: var(--bg-color); /* 用浅背景色 */
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    border: 1px solid var(--border-color);
+    text-align: center; /* 文字居中 */
+}
+
+#related-posts-list a:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+}
+
+#related-posts-placeholder {
+    text-align: center;
+    margin-top: 15px;
+}

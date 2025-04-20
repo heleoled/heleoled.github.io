@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于东风夹 | 东风夹の秘密基地</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <!-- (可选) 为"关于"页单独创建 CSS -->
+    <link rel="stylesheet" href="css/about.css"> <!-- <<< 推荐创建一个 about.css 文件 -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <!-- <link rel="stylesheet" href="css/theme-christmas.css"> -->
+
+</head>
+<body class="theme-light">
+
+    <header class="site-header">
+        <div class="header-content container">
+            <div class="site-branding">
+                <h1 class="site-title"><a href="blog.html">东风夹の秘密基地</a></h1>
+                <p class="site-description">记录美好与代码的次元碎片 (≧∇≦)/</p>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="blog.html">首页</a></li>
+                    <li><a href="archives.html">归档</a></li>
+                    <li><a href="tags.html">标签</a></li>
+                    <li><a href="categories.html">文章分类</a></li>
+                    <li><a href="lists.html">收藏夹</a></li>
+                    <li><a href="friends.html">友链</a></li>
+                    <li><a href="about.html" class="current-menu-item">关于我</a></li>
+                </ul>
+            </nav>
+            <div class="header-widgets">
+                <div class="search-widget with-icon"> <!-- 添加 with-icon 类 -->
+                    <input type="search" id="search-input" placeholder="搜索文章..." class="search-input" disabled>
+                    <!-- 按钮不再需要文字，只保留图标，并可能需要调整 class -->
+                    <button id="search-button" class="search-button-icon" aria-label="搜索" disabled>🔍</button>
+                </div>
+                <button id="theme-switcher" aria-label="切换主题">🌙</button>
+                <!-- <button id="random-post-btn" aria-label="随机文章">🎲</button> -->
+            </div>
+        </div>
+        <div id="search-results-container" style="display: none; margin-top: 20px; padding: 20px; background-color: var(--card-bg-color); border-radius: 8px; box-shadow: 0 3px 10px var(--shadow-color);">
+            <h3>搜索结果:</h3>
+            <ul id="search-results-list"></ul>
+            <p id="search-no-results" style="display: none; color: var(--text-light-color);">没有找到相关内容哦~</p>
+        </div>
+    </header>
+
+    <div class="main-content-area container">
+        <main class="content-main about-page">
+            <article class="about-content post-full">
+                <header class="post-header-full">
+                    <h1 class="post-title-full">关于东风夹 (￣▽￣)／</h1>
+                </header>
+
+                <div class="post-content-full">
+
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <!-- 使用了你代码中的头像路径 -->
+                        <img src="images/dfj.webp" alt="东风夹的头像" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 15px; border: 4px solid var(--accent-color); box-shadow: 0 4px 10px var(--shadow-color);">
+                        <p style="font-size: 1.2em;"><strong>嗨多磨！这里是东风夹！(DongFengJia)</strong></p>
+                        <p>一只热爱 ACGN 文化、努力学习自己热爱的东西的普通爱好者~</p>
+                        <p>这个小小的博客，是我的秘密基地，用来存放：</p>
+                        <!-- 使用了你代码中的列表项图标和文本 -->
+                        <ul class="decorated-list" style="list-style: none; padding-left: 0; text-align: left; display: inline-block;">
+                            <li><span class="icon">🌸</span> 对喜欢的番剧、漫画、游戏的不成熟感想和吐槽</li>
+                            <li><span class="icon">💻</span> 在代码世界摸爬滚打的学习笔记和踩坑记录</li>
+                            <li><span class="icon">✨</span> 日常生活中捕捉到的、想要珍藏的闪光碎片</li>
+                        </ul>
+                        <p>希望能在这里与你相遇，分享彼此的热爱！o(〃'▽'〃)o</p>
+                    </div>
+
+                    <section class="about-section">
+                         <h2>为什么叫“东风夹”？🤔</h2>
+                         <p>嗯...说来话长，其实也没什么特别酷的故事啦！</p>
+                         <p>可能就是某个吹着温暖东风的午后，灵光一闪觉得这个名字有点特别？或者，也许和我喜欢收集整理各种东西（像用文件夹归类一样？）的习惯有点关系？</p>
+                         <p>总之，“东风夹”现在就是我的代号啦！它可能代表着“乘着东风（希望）收集美好”，也可能...只是单纯觉得好听？嘿嘿~ (￣▽￣)</p>
+                         <p>你怎么理解都可以哦！</p>
+                    </section>
+
+                    <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 40px 0;">
+
+                    <section class="about-section">
+                        <h2>找到我 & 联系我</h2>
+                        <p>欢迎通过以下方式找到我或者交流~</p>
+                        <ul class="contact-list" style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px;">
+                                <!-- 使用了你代码中的邮箱 -->
+                                📧 邮箱 <a href="mailto:dsyddcc@proton.me" class="contact-link">dsyddcc@proton.me</a> (可能回复较慢，佛系查看~)
+                            </li>
+                            <!-- 移除了空 QQ 号的列表项 -->
+                            <li style="margin-bottom: 10px;">
+                                <!-- 使用了你代码中的 QQ 群信息 -->
+                                🎉 QQ群: <a href="https://qm.qq.com/q/xvfuW5S22s" target="_blank" class="contact-link">点击加入东风夹的秘密集会 (群号: 796696625)</a> (欢迎同好一起来玩！)
+                            </li>
+                            <li style="margin-bottom: 10px;">
+                                <!-- 使用了你代码中的 B 站信息 -->
+                                <span class="bilibili-icon" style="color: #fb7299; font-family: 'bilibili Evolved', sans-serif; display: inline-block; width: 1.2em; text-align: center;">
+                                    <svg viewBox="0 0 1024 1024" style="width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor;" aria-hidden="true"><use xlink:href="#icon-bilibili"></use></svg>
+                                </span>
+                                B站: <a href="https://space.bilibili.com/3461581826427524?spm_id_from=333.1007.0.0" target="_blank" class="contact-link">东风夹 </a> (卑微求个三连不过分吧？(*/ω＼*))
+                            </li>
+                        </ul>
+                    </section>
+
+                    <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 40px 0;">
+
+                    <p style="text-align: center; font-size: 1.1em; margin-top: 30px;">最后，再次感谢你的光临！<br>希望你在这里能找到喜欢的东西~ Mua~ (づ￣ ³￣)づ</p>
+
+                </div>
+            </article>
+        </main>
+
+        <!-- 侧边栏 (使用了你代码中的小部件) -->
+        <aside class="sidebar">
+             <!-- 移除了关于博主小部件，因为主要内容区已有详细介绍 -->
+             <!-- <div class="widget about-me-widget">...</div> -->
+             <div class="widget clock-widget anime-style"> <!-- 这是最外层的容器 -->
+
+                <h3 class="widget-title">
+                    <span class="icon">💖</span>
+                    次元时间流
+                    <span class="icon">✨</span>
+                </h3>
+        
+                <div id="clock-display" class="clock-time"> <!-- 这是显示 HH:MM:SS 的容器 -->
+                    <span class="hour">--</span>
+                    <span class="separator">:</span>
+                    <span class="minute">--</span>
+                    <span class="separator">:</span>
+                    <span class="second">--</span>
+                </div>
+        
+                <!-- !!! 确保这个 div 在 widget 内部，clock-time 之后 !!! -->
+                <div class="clock-details">
+                    <span id="clock-weekday" class="weekday">---</span>
+                    <span id="clock-ampm" class="ampm">--</span>
+                </div>
+                <!-- !!! 确保它在这里 !!! -->
+        
+            </div> <!-- 这是最外层容器的结束标签 -->
+            <!-- 随机古诗小部件 -->
+            <div class="widget poem-widget">
+                <h3 class="widget-title">古诗美韵 🍃</h3> <!-- 或者用其他图标 -->
+                <div class="poem-content">
+                    <p id="poem-sentence" class="sentence">...</p> <!-- 显示诗句 -->
+                    <p id="poem-info" class="info">—— 《...》 ...</p> <!-- 显示作者和题目 -->
+                </div>
+                <!-- (可选) 添加一个刷新按钮 -->
+                <button id="refresh-poem-btn">换一句</button>
+            </div>
+        
+            <div class="widget fortune-widget">
+                <h3 class="widget-title">今日运势/心情</h3>
+                <p id="fortune-text">加载中...</p> <!-- 确保有 fortune-text ID -->
+            </div>
+
+            <div class="widget community-widget">
+                <h3 class="widget-title">常驻基地</h3>
+                 <!-- 使用了你代码中的 QQ 群链接 -->
+                <p>QQ群: <a href="https://qm.qq.com/q/xvfuW5S22s" target="_blank">796696625</a></p>
+           </div>
+
+            <div class="widget list-widget">
+                <h3 class="widget-title">当前状态 OwO</h3>
+                 <!-- 使用了你代码中的列表内容 -->
+                <ul>
+                    <li>🎬 正在追：《男女之间的友情存在吗？（不，不存在!!）》</li>
+                    <li>🎮 沉迷中：《约战：精灵再临》</li>
+                    <li>📖 慢慢看：《唐诗·宋词300首》</li>
+                    <li>🎶 单曲循环：《当你》 - [林俊杰]</li>
+                    <li>🤔 思考中：人生... (开玩笑的)</li>
+                </ul>
+                 <a href="lists.html">查看我的更多收藏 »</a>
+            </div>
+        </aside> <!-- /.sidebar -->
+
+    </div> <!-- /.main-content-area -->
+
+    <footer class="site-footer">
+        <div class="footer-content container">
+            <p>© 2024 东风夹 | 由热爱驱动 ❤️</p>
+            <p>Powered by GitHub Pages</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" title="回到顶部">🔝</button>
+    <!-- 移除了 BGM 播放器，因为你的代码里没有它 -->
+    <!-- <div id="bgm-player-container" class="bgm-player"> ... </div> -->
+
+    <script src="js/fuse.min.js"></script>  
+    <script src="js/search.js"></script>
+    <script src="js/blog.js"></script> <!-- 确保路径正确 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <!-- B 站 SVG 图标定义 -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-bilibili" viewBox="0 0 1024 1024">
+            <path d="M101.696 445.864c-23.139 0-41.888 18.749-41.888 41.888v41.888c0 23.139 18.749 41.888 41.888 41.888h820.608c23.139 0 41.888-18.749 41.888-41.888v-41.888c0-23.139-18.749-41.888-41.888-41.888H101.696zM922.304 571.434H101.696c-23.139 0-41.888 18.749-41.888 41.888v41.888c0 23.139 18.749 41.888 41.888 41.888h820.608c23.139 0 41.888-18.749 41.888-41.888v-41.888c0-23.139-18.749-41.888-41.888-41.888zM101.696 233.898c-23.139 0-41.888 18.749-41.888 41.888v41.888c0 23.139 18.749 41.888 41.888 41.888h820.608c23.139 0 41.888-18.749 41.888-41.888v-41.888c0-23.139-18.749-41.888-41.888-41.888H101.696zM922.304 359.467H101.696c-23.139 0-41.888 18.749-41.888 41.888v41.888c0 23.139 18.749 41.888 41.888 41.888h820.608c23.139 0 41.888-18.749 41.888-41.888v-41.888c0-23.139-18.749-41.888-41.888-41.888z" fill="#00A1D6"></path>
+            <path d="M359.467 783.775c-23.139 0-41.888 18.749-41.888 41.888v41.888c0 23.139 18.749 41.888 41.888 41.888h304.064c23.139 0 41.888-18.749 41.888-41.888v-41.888c0-23.139-18.749-41.888-41.888-41.888H359.467z" fill="#00A1D6"></path>
+        </symbol>
+    </svg>

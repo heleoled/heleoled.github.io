@@ -1,0 +1,810 @@
+/* --- 页头样式 --- */
+.site-header {
+    background-color: var(--card-bg-color); /* 页头用卡片背景色，和主体区分 */
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    position: sticky; /* 让页头吸顶 (可选) */
+    top: 0;
+    z-index: 100; /* 确保在其他内容之上 */
+    transition: background-color 0.3s ease, 
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+.header-content {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: space-between; /* 两端对齐：左边标题，中间导航，右边小部件 */
+    align-items: center; /* 垂直居中 */
+    flex-wrap: wrap; /* 在小屏幕上允许换行 */
+}
+
+.site-branding .site-title a {
+    color: var(--heading-color); /* 标题用醒目颜色 */
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    /* 可以考虑加入可爱的字体 */
+}
+.site-branding .site-title a:hover {
+    color: var(--link-hover-color);
+}
+
+.site-description {
+    color: var(--text-light-color);
+    font-size: 0.9rem;
+    margin-bottom: 0; /* 移除默认的 p 标签下边距 */
+}
+
+.main-navigation ul {
+    list-style: none; /* 移除列表默认样式 */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 横向排列 */
+    gap: 20px; /* 导航项之间的间距 */
+}
+
+/* 在 css/blog.css 文件中找到或添加 */
+
+.main-navigation a {
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    border-bottom: 2px solid transparent; /* 准备一个透明下划线做悬浮效果 */
+
+    /* --- 确保这行存在！ --- */
+    /* 过渡颜色和边框颜色，持续 0.2 秒 */
+     transition: all 0.3s ease; 
+    /* 先注释掉原来的 transition: color 0.2s ease, border-color 0.2s ease; */
+}
+
+/* :hover, :focus, .current-menu-item a 的样式不需要加 transition */
+.main-navigation a:hover,
+.main-navigation a:focus,
+.main-navigation .current-menu-item a { /* 当前页面或高亮项 */
+    color: var(--link-hover-color);
+    border-bottom-color: var(--link-hover-color); /* 悬浮时显示下划线 */
+}
+.header-widgets {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* 小部件之间的间距 */
+}
+
+.header-widgets button {
+    background: none;
+    border: none;
+    font-size: 1.3rem; /* 图标按钮可以大一点 */
+    padding: 5px;
+    color: var(--text-light-color);
+    cursor: pointer;
+    border-radius: 50%; /* 圆形按钮背景 */
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.header-widgets button:hover {
+     background-color: var(--bg-color); /* 浅背景 */
+     color: var(--primary-color);
+}
+
+/* --- 主要内容区布局 --- */
+.main-content-area {
+    padding-top: 40px; /* 与页头间距 */
+    padding-bottom: 40px;
+    display: flex; /* 启用 Flexbox */
+    gap: 30px; /* 主内容和侧边栏之间的间距 */
+}
+
+.posts-container { /* 主内容区 (文章列表) */
+    flex: 3; /* 占据大部分空间 (比例为 3) */
+    min-width: 0; /* 防止 flex item 内容溢出 */
+}
+
+.sidebar { /* 侧边栏 */
+    flex: 1; /* 占据小部分空间 (比例为 1) */
+    min-width: 250px; /* 保证侧边栏最小宽度 */
+}
+
+/* --- 文章预览卡片样式 --- */
+.category-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    display: inline-block; /* 让下划线长度随文字 */
+}
+.section-title .icon { /* 分类标题前的图标 */
+    margin-right: 8px;
+}
+
+.post-preview {
+    background-color: var(--card-bg-color);
+    border-radius: 12px; /* 可爱的圆角 */
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px var(--shadow-color); /* 粉色调阴影 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+/* 示例：给卡片和小部件添加背景色过渡 */
+.post-preview,
+.widget {
+    /* ... 其他样式 ... */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* 把所有可能变化的颜色和效果都加上过渡 */
+}
+
+/* 示例：给标题添加颜色过渡 */
+h1, h2, h3, h4, h5, h6 {
+    /* ... 其他样式 ... */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 示例：给链接添加颜色过渡 (之前可能只加了 color)*/
+a {
+   /* ... 其他样式 ... */
+   transition: color 0.3s ease, border-color 0.3s ease; /* border-color 是为了导航栏下划线 */
+}
+
+/* 你甚至可以考虑给更多元素加上过渡，但这可能会影响一点点性能 */
+/* 比如给侧边栏头像边框加过渡 */
+.sidebar-avatar {
+    /* ... 其他样式 ... */
+    transition: border-color 0.3s ease;
+}
+
+/* 给按钮加过渡 (common.css 里可能已经有了基础过渡，确保包含 background-color 和 color) */
+button, input[type='submit'], input[type='button'] {
+     /* ... 其他样式 ... */
+     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.1s ease;
+}
+
+.post-preview:hover {
+    transform: translateY(-5px); /* 悬浮时轻微上移 */
+    box-shadow: 0 8px 30px rgba(255, 135, 171, 0.25); /* 阴影更明显 */
+}
+
+.post-header .post-title a {
+    color: var(--heading-color);
+    text-decoration: none;
+}
+.post-header .post-title a:hover {
+    color: var(--link-hover-color);
+}
+
+.post-meta {
+    color: var(--text-light-color);
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+.post-meta a { /* 标签链接 */
+    color: var(--text-light-color);
+    text-decoration: underline;
+    text-decoration-style: dotted; /* 点状下划线 */
+    text-decoration-color: var(--accent-color);
+    margin-left: 3px;
+}
+.post-meta a:hover {
+    color: var(--link-color);
+    text-decoration-color: var(--link-color);
+}
+
+.post-excerpt p:last-child {
+    margin-bottom: 0; /* 移除摘要最后一段的下边距 */
+}
+
+.post-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between; /* 让阅读全文和点赞按钮分开 */
+    align-items: center;
+}
+
+.read-more {
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.read-more:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* 文件: css/blog.css */
+
+.like-button { /* 点赞按钮的特定样式 */
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-light-color);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+    cursor: pointer; /* 确保有小手指针 */
+}
+.like-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+/* --- 新增：已点赞状态的样式 --- */
+.like-button.liked {
+     background-color: var(--primary-color); /* 用主题粉色表示已点赞 */
+     color: white;
+     border-color: var(--primary-color);
+     cursor: default; /* 已点赞后指针变回默认 */
+}
+.like-button.liked:hover { /* 已点赞后悬浮效果可以不变或减弱 */
+     background-color: var(--primary-color); /* 保持点赞颜色 */
+}
+.like-button .count { /* 计数的 span */
+    margin-left: 4px;
+}
+
+/* --- 侧边栏和小部件样式 --- */
+.widget {
+    background-color: var(--card-bg-color);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.widget-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    color: var(--heading-color);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar li {
+    margin-bottom: 8px;
+}
+.sidebar a {
+    text-decoration: none;
+}
+
+.sidebar-avatar {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px; /* 居中并添加下边距 */
+    display: block;
+    border: 4px solid var(--accent-color);
+}
+
+.about-me-widget p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+.about-me-widget a { /* 了解更多链接 */
+    font-weight: 500;
+}
+
+.tag-cloud a {
+    display: inline-block;
+    padding: 3px 8px;
+    margin: 3px;
+    background-color: var(--bg-color);
+    border-radius: 15px;
+    font-size: 0.9rem !important; /* 使用 !important 覆盖 style 属性的大小，或者后面用 JS 控制 */
+    color: var(--link-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.tag-cloud a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.fortune-widget p { /* 今日运势文本 */
+    font-style: italic;
+    color: var(--text-light-color);
+}
+
+.community-widget p {
+    font-size: 0.9rem;
+}
+.community-widget a { /* 加入链接 */
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.community-widget a:hover {
+    background-color: var(--primary-color);
+}
+
+.list-widget ul {
+    font-size: 0.9rem;
+}
+.list-widget a { /* 查看完整列表链接 */
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 10px;
+}
+
+/* --- 页脚样式 --- */
+.site-footer {
+    background-color: var(--card-bg-color);
+    border-top: 1px solid var(--border-color);
+    padding: 25px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-light-color);
+    margin-top: 30px;
+    transition: background-color 0.3s ease, 
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.site-footer p {
+    margin-bottom: 5px;
+}
+.site-footer a {
+    color: var(--text-light-color);
+    text-decoration: underline;
+}
+.site-footer a:hover {
+    color: var(--link-color);
+}
+
+/* --- 固定元素样式 --- */
+/* --- 固定元素样式 (更新 Back to Top 部分) --- */
+#back-to-top {
+    position: fixed; /* 固定定位 */
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%; /* 圆形 */
+    font-size: 1.5rem;
+    line-height: 45px; /* 确保图标垂直居中 */
+    text-align: center; /* 确保图标水平居中 */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+
+    /* --- 控制显示/隐藏的样式 --- */
+    opacity: 0; /* 初始完全透明 */
+    visibility: hidden; /* 初始隐藏，不占位，不可交互 */
+    transform: translateY(20px); /* 初始稍微向下偏移一点 */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 平滑过渡效果 */
+}
+
+#back-to-top:hover {
+    background-color: var(--link-hover-color);
+    transform: scale(1.1) translateY(0); /* 悬浮放大，并抵消初始偏移 */
+}
+
+/* 当按钮需要显示时，添加 .show 类 */
+#back-to-top.show {
+    opacity: 1; /* 完全不透明 */
+    visibility: visible; /* 可见且可交互 */
+    transform: translateY(0); /* 移动回原位 */
+    /* --- 新增：使用 Flexbox 将图标居中 --- */
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+    /* --- 新增结束 --- */
+}
+.bgm-player { /* BGM 播放器容器 */
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 99;
+}
+
+#bgm-toggle-button { /* BGM 播放按钮 */
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明白色 */
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); /* 毛玻璃效果 (可选) */
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+    /* --- 新增：使用 Flexbox 将图标居中 --- */
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+    /* --- 新增结束 --- */
+}
+#bgm-toggle-button:hover {
+     background-color: white;
+     transform: scale(1.1);
+}
+#bgm-toggle-button.playing { /* 播放状态下的样式 (假设 JS 添加 .playing) */
+     color: var(--link-hover-color);
+     /* 可以加旋转动画 */
+     animation: spin 4s linear infinite; 
+}
+    @keyframes spin { 100% { transform: rotate(360deg); } } 
+
+#bgm-audio { /* 隐藏 audio 元素本身 */
+    display: none;
+}
+
+/* --- 响应式设计 (示例: 小屏幕下单栏布局) --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column; /* 页头内容垂直排列 */
+        gap: 15px;
+    }
+    .main-navigation ul {
+        flex-wrap: wrap; /* 导航项允许换行 */
+        justify-content: center; /* 居中 */
+        gap: 10px 15px;
+    }
+    .header-widgets {
+        margin-top: 10px;
+    }
+
+    .main-content-area {
+        flex-direction: column; /* 主内容区和侧边栏垂直排列 */
+    }
+
+    .sidebar {
+        min-width: auto; /* 取消侧边栏最小宽度 */
+        margin-top: 30px; /* 和主内容区添加间距 */
+    }
+
+}
+/* 文件: css/blog.css */
+
+/* --- 悬浮测验小部件样式 --- */
+.quiz-widget {
+    position: fixed; /* 固定定位 */
+    bottom: 90px;   /* 距离底部 (留出 BGM 和回到顶部的位置) */
+    right: 30px;    /* 距离右侧 */
+    width: 280px;   /* 固定宽度 */
+    max-width: 90%; /* 在小屏幕上不超过 90% 宽度 */
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    z-index: 98; /* 比普通内容高，但比 BGM/回到顶部低？可调整 */
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, opacity 0.3s ease; /* 为可能的显示/隐藏动画准备 */
+    font-size: 0.9rem; /* 内部字体可以小一点 */
+    /* 添加以下属性使其可拖动 */
+    user-select: none; /* 防止文本选择影响拖动 */
+    cursor: move; /* 显示移动光标 */
+}
+
+/* 当进入拖动状态时添加的类 */
+.quiz-widget.dragging {
+    opacity: 0.8;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-title {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.quiz-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.quiz-options {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+.quiz-options li {
+    margin-bottom: 8px;
+}
+.quiz-options label {
+    display: block; /* 让整个标签可点击 */
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+.quiz-options label:hover {
+    background-color: var(--bg-color); /* 悬浮时加个浅背景 */
+}
+.quiz-options input[type="radio"] {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.quiz-submit-btn {
+    display: block; /* 独占一行 */
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px; /* 和结果区隔开 */
+}
+
+.quiz-result {
+    border-top: 1px dashed var(--border-color);
+    padding-top: 15px;
+    text-align: center;
+}
+.quiz-result .result-title {
+    font-size: 1rem;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+#quiz-result-text {
+    font-weight: bold;
+    color: var(--primary-color);
+    min-height: 3em; /* 给结果文本留点高度 */
+    margin-bottom: 15px;
+}
+.quiz-reset-btn {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    background-color: var(--text-light-color); /* 重置按钮用灰色 */
+}
+ .quiz-reset-btn:hover {
+     background-color: var(--text-color);
+ }
+
+.quiz-close-btn { /* 关闭按钮样式 */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-light-color);
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+}
+ .quiz-close-btn:hover {
+     color: var(--heading-color);
+ }
+
+/* (可选) 用于隐藏小部件的类 */
+.quiz-widget.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none; /* 隐藏时不可交互 */
+}
+/* 文件: css/blog.css */
+
+/* --- 图片展示小部件样式 --- */
+.gallery-widget .widget-title {
+    /* 可以用特定图标？ */
+}
+
+.gallery-container {
+    display: grid;
+    /* 每行显示 2 个缩略图 */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* 图片之间的间距 */
+}
+
+.gallery-container a { /* 如果用了 a 标签包裹 */
+    display: block;
+    text-decoration: none;
+    border-radius: 6px; /* 图片圆角 */
+    overflow: hidden; /* 隐藏超出圆角的部分 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+ .gallery-container a:hover {
+     transform: scale(1.05); /* 悬浮放大 */
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+ }
+
+
+.gallery-container img {
+    width: 100%; /* 图片宽度占满容器 */
+    height: auto; /* 高度自动 */
+    aspect-ratio: 1 / 1; /* !!! 强制图片为正方形 (可选) !!! */
+    object-fit: cover; /* 裁剪图片以填充正方形，不变形 */
+    display: block; /* 移除图片底部空白 */
+}
+/* 文件: css/blog.css */
+/* --- 时钟小部件样式 --- */
+.clock-widget {
+    text-align: center; /* 让时间和标题居中 */
+}
+
+.clock-time {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 10px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* (可选) 在暗色模式下调整时间颜色 */
+body.theme-dark #clock-display {
+    color: var(--primary-color); /* 暗色模式下可能也用亮粉色 */
+    /* background-color: var(--card-bg-color); 用卡片背景色 */
+}
+/* 文件: css/blog.css */
+
+/* --- 时钟详情区域样式 (星期和 AM/PM) --- */
+.clock-details {
+    margin-top: 8px; /* 和上面的时间稍微隔开 */
+    font-size: 0.9rem; /* 字体可以小一点 */
+     color: #b797d7; /*尝试一种柔和的淡紫色？*/
+      /* color: var(--accent-color);  */
+    font-weight: 500;
+}
+
+.clock-details .weekday {
+    margin-right: 10px; /* 星期和 AM/PM 之间加点距离 */
+}
+
+.clock-details .ampm {
+    /* 可以给 AM/PM 加点特殊样式，比如背景色 */
+    /* background-color: var(--bg-color); */
+    /* padding: 1px 4px; */
+    /* border-radius: 3px; */
+}
+
+/* (可选) 暗色模式下的调整 */
+body.theme-dark .clock-details {
+     color: #b797d7;  /* 暗色模式下也用浅色文字 */
+}
+/* 文件: css/blog.css */
+
+/* --- 随机古诗小部件样式 --- */
+.poem-widget {
+    /* 可以加点特别的背景或边框 */
+    /* background-color: #f8f8f0; */ /* 仿宣纸色? */
+    border-left: 3px solid var(--accent-color); /* 左侧加条装饰线 */
+    padding-left: 15px;
+}
+
+.poem-widget .widget-title {
+    /* font-family: 'KaiTi', 'STKaiti', serif; */ /* 尝试使用楷体 */
+    font-size: 1.1rem;
+    color: var(--heading-color);
+}
+
+.poem-content {
+    margin-top: 10px;
+}
+
+#poem-sentence {
+    /* font-family: 'KaiTi', 'STKaiti', serif; */ /* 诗句也用楷体 */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-weight: 500; /* 可以稍微加粗一点 */
+}
+
+#poem-info {
+    font-size: 0.85rem;
+    color: var(--text-light-color);
+    text-align: right; /* 作者和出处右对齐 */
+    font-style: italic; /* 斜体 */
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* 刷新按钮样式 */
+#refresh-poem-btn {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    background-color: var(--bg-color);
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#refresh-poem-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+#refresh-poem-btn:active {
+    transform: translateY(0);
+}
+
+/* 暗色模式调整 (可选) */
+body.theme-dark .poem-widget {
+     border-left-color: var(--primary-color);
+     /* background-color: var(--card-bg-color); */
+}
+body.theme-dark #poem-sentence { color: var(--text-color); }
+body.theme-dark #poem-info { color: var(--text-light-color); }
+body.theme-dark #refresh-poem-btn {
+    background-color: var(--card-bg-color);
+    color: var(--primary-color);
+    border-color: var(--border-color);
+}
+body.theme-dark #refresh-poem-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 文件: css/blog.css */
+
+/* --- 搜索框与图标整合样式 --- */
+.search-widget.with-icon {
+    position: relative; /* 作为按钮绝对定位的基准 */
+    display: flex; /* 可以用 flex 确保它们在一行 */
+    align-items: center;
+}
+
+.search-widget.with-icon .search-input {
+    padding-right: 35px; /* !!! 为右侧的图标按钮留出空间 !!! */
+    /* 其他输入框样式 (圆角、边框等) 保持或调整 */
+    border-radius: 20px; /* 示例：胶囊形状 */
+    border: 1px solid var(--border-color);
+    padding-left: 15px;
+    height: 36px; /* 示例高度 */
+}
+
+.search-button-icon {
+    position: absolute; /* 绝对定位 */
+    right: 5px;        /* 定位到右侧，留一点边距 */
+    top: 50%;          /* 初始定位到垂直中心 */
+    transform: translateY(-50%); /* 精确垂直居中 */
+    background: none;  /* 去掉背景 */
+    border: none;      /* 去掉边框 */
+    padding: 0 5px;    /* 调整内边距 */
+    font-size: 1.2rem; /* 图标大小 */
+    color: var(--text-light-color); /* 图标颜色 */
+    cursor: pointer;
+    height: calc(100% - 10px); /* 让按钮高度接近输入框内部高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease-out, color 0.2s ease; 
+}
+.search-button-icon:hover {
+    color: var(--primary-color); /* 悬浮变色 */
+}
+.search-button-icon:active {
+    transform: translateY(-50%) scale(0.9); /* 在垂直居中的基础上，稍微缩小到 90% */
+    /* 之前的 translateY(-1px) 或其他效果可以移除 */
+    color: var(--primary-color); /* 点击时也可以保持高亮色 */
+}
+.search-button-icon:disabled { /* 禁用时样式 */
+    cursor: not-allowed;
+    opacity: 0.5;
+}

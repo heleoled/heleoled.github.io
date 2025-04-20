@@ -1,0 +1,112 @@
+/* 文件: css/tags.css */
+
+.tags-page .post-full { padding-bottom: 40px; }
+
+/* 标签平铺容器的样式 */
+.all-tags-list.flat-tags {
+    display: flex; /* 使用 Flexbox 排列 */
+    flex-wrap: wrap; /* 允许换行 */
+    gap: 12px 18px; /* 标签之间的垂直和水平间距 */
+    margin-top: 30px;
+    padding: 25px; /* 容器内边距 */
+    background-color: var(--bg-color); /* 容器背景色 */
+    border-radius: 10px; /* 容器圆角 */
+    justify-content: center; /* (可选) 让标签在行内居中对齐 */
+}
+
+/* 单个标签按钮的样式 */
+.tag-item {
+    display: inline-block;
+    padding: 6px 15px; /* 调整内边距控制大小 */
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px; /* 胶囊形状 */
+    font-size: 1rem;    /* 调整字体大小 */
+    color: var(--link-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px var(--shadow-color); /* 加一点阴影 */
+}
+
+.tag-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px); /* 悬浮时轻微上移 */
+    box-shadow: 0 4px 10px rgba(255, 135, 171, 0.3); /* 悬浮阴影加深 */
+    text-decoration: none;
+}
+/* 文件: css/tags.css */
+
+.tags-page .post-full { padding-bottom: 40px; }
+
+/* 所有标签按钮容器 */
+.all-tags-list.flat-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    margin-top: 20px;
+    padding: 25px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    justify-content: center;
+    margin-bottom: 40px; /* 和下面的文章列表隔开 */
+}
+
+/* 单个标签按钮样式 */
+.tag-item { /* 现在它是 JS 生成的 */
+    display: inline-block;
+    padding: 6px 15px;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 1rem;
+    color: var(--link-color);
+    text-decoration: none;
+    cursor: pointer; /* 改为小手，因为它不再是普通链接 */
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+.tag-item:hover,
+.tag-item.active { /* 增加一个 active 状态 */
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 135, 171, 0.3);
+    text-decoration: none;
+}
+
+/* 标签下文章列表容器 */
+#tag-posts-container {
+    /* 可以加点外边距 */
+    margin-top: 30px;
+}
+
+#tag-posts-title { /* 显示 "标签 'XXX' 下的文章" */
+    font-size: 1.6rem;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* 文章列表样式 (复用 archives.css 的部分样式) */
+.post-list-under-tag {
+    list-style: none;
+    padding-left: 0;
+}
+.post-list-under-tag li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+.post-list-under-tag li::before {
+    content: '📄';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-size: 0.9em;
+    color: var(--accent-color);
+}
+.post-list-under-tag a {
+    font-size: 1rem;
+}

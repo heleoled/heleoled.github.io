@@ -1,0 +1,134 @@
+/* 文件: css/categories.css */
+
+.categories-page .post-full {
+    padding-bottom: 40px;
+}
+
+.category-list {
+    margin-top: 30px;
+}
+
+.category-group {
+    margin-bottom: 40px;
+    padding-left: 10px; /* 给整个组一点缩进 */
+    border-left: 3px solid var(--primary-color); /* 左侧加条线 */
+}
+
+.category-level-1 { /* 一级分类标题 */
+    font-size: 1.6rem;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    margin-left: -13px; /* 让标题左移，覆盖部分边线 */
+    padding-left: 10px; /* 标题左侧留白 */
+    position: relative;
+}
+ /* 给一级标题加个图标 */
+.category-level-1::before {
+    content: '📁'; /* 或者其他图标 */
+    margin-right: 8px;
+    font-size: 0.9em;
+}
+
+
+.category-level-2 { /* 二级分类容器 */
+    margin-left: 20px; /* 二级分类再缩进 */
+    margin-bottom: 25px;
+}
+
+.category-level-2 h3 { /* 二级分类标题 */
+    font-size: 1.25rem;
+    color: var(--heading-color);
+    opacity: 0.8; /* 可以让二级标题稍微弱一点 */
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 5px;
+}
+ .category-level-2 h3 a {
+     color: inherit; /* 继承颜色 */
+     text-decoration: none;
+ }
+  .category-level-2 h3 a:hover {
+      color: var(--link-hover-color);
+  }
+
+
+.post-list-in-category {
+    list-style: none; /* 移除默认列表样式 */
+    padding-left: 15px; /* 文章列表缩进 */
+}
+ /* 没有二级分类的一级列表，可以直接用这个缩进 */
+ .single-level-list {
+     list-style: none;
+     padding-left: 0; /* 不再额外缩进 */
+ }
+
+
+.post-list-in-category li {
+    margin-bottom: 10px;
+    position: relative;
+}
+/* 给文章链接加个小图标 */
+.post-list-in-category li::before {
+    content: '📄'; /* 或者 '»' 或其他 */
+    margin-right: 8px;
+    font-size: 0.9em;
+    color: var(--accent-color);
+}
+
+.post-list-in-category a {
+    font-size: 1rem;
+}
+/* 文件: css/categories.css (或 blog.css) */
+
+/* ... 保留之前的分类页样式 ... */
+
+/* 折叠区域标题 */
+.collapsible-header {
+    cursor: pointer; /* 鼠标变成小手，提示可点击 */
+    display: flex;   /* 让图标和文字在一行 */
+    align-items: center; /* 垂直居中 */
+    /* 可以给 H3 标题去掉一些默认边距，如果需要的话 */
+     margin-bottom: 10px; /* 调整与下方列表的间距 */
+}
+.collapsible-header:hover a { /* 悬浮时标题颜色变化 */
+    color: var(--link-hover-color);
+}
+
+
+/* 展开/收起图标 */
+.toggle-icon {
+    display: inline-block;
+    width: 1.5em; /* 固定宽度方便对齐 */
+    text-align: center;
+    margin-right: 5px;
+    font-size: 0.8em;
+    color: var(--primary-color);
+    transition: transform 0.2s ease-in-out; /* 图标旋转动画 */
+}
+
+/* 展开状态下的图标旋转 */
+.collapsible-section.open .toggle-icon {
+    transform: rotate(90deg); /* 从 ▶ 旋转成 ▼ (大致效果) */
+}
+
+/* 折叠内容区域 */
+.collapsible-content {
+    /* 默认由 HTML style="display: none;" 隐藏 */
+    /* 可以添加过渡效果，但 display:none 无法直接过渡 */
+    /* 如果想用动画，需要用 max-height: 0 -> auto + overflow: hidden */
+    /* 这里为了简单，先不用动画 */
+    padding-left: 1.8em; /* 内容区域也缩进，和标题对齐 */
+    margin-top: -5px; /* 调整与标题的间距 */
+}
+
+/* (可选) 如果想用 max-height 实现带动画的展开/收起 */
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-left: 1.8em;
+    margin-top: -5px;
+} 
+ .collapsible-section.open .collapsible-content {
+     max-height: 1000px; /* 设置一个足够大的值 */
+}

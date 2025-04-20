@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签汇总 | 东风夹の秘密基地</title> <!-- 页面标题 -->
+
+    <!-- !!! 路径是相对于根目录 !!! -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <!-- (可选) 为标签页单独创建 CSS -->
+    <link rel="stylesheet" href="css/tags.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"> <!-- 假设你准备了 32x32 的 PNG -->
+    <!-- <link rel="stylesheet" href="css/theme-christmas.css"> -->
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico"> -->
+</head>
+<body class="theme-light"> <!-- 主题类 -->
+
+    <!-- 页头 (和 blog.html 保持一致) -->
+    <header class="site-header">
+        <div class="header-content container">
+            <div class="site-branding">
+                <h1 class="site-title"><a href="blog.html">东风夹の秘密基地</a></h1>
+                <p class="site-description">记录美好与代码的次元碎片 (≧∇≦)/</p>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="blog.html">首页</a></li>
+                    <li><a href="archives.html">归档</a></li>
+                    <li><a href="tags.html" class="current-menu-item">标签</a></li> <!-- 当前页面高亮 -->
+                    <li><a href="categories.html">文章分类</a></li>
+                    <li><a href="lists.html">收藏夹</a></li>
+                    <li><a href="friends.html">友链</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                </ul>
+            </nav>
+            <div class="header-widgets">
+                <div class="search-widget with-icon"> <!-- 添加 with-icon 类 -->
+                    <input type="search" id="search-input" placeholder="搜索文章..." class="search-input" disabled>
+                    <!-- 按钮不再需要文字，只保留图标，并可能需要调整 class -->
+                    <button id="search-button" class="search-button-icon" aria-label="搜索" disabled>🔍</button>
+                </div>
+                <button id="theme-switcher" aria-label="切换主题">🌙</button>
+                <!-- <button id="random-post-btn" aria-label="随机文章">🎲</button> -->
+            </div>
+        </div>
+        <div id="search-results-container" style="display: none; margin-top: 20px; padding: 20px; background-color: var(--card-bg-color); border-radius: 8px; box-shadow: 0 3px 10px var(--shadow-color);">
+            <h3>搜索结果:</h3>
+            <ul id="search-results-list"></ul>
+            <p id="search-no-results" style="display: none; color: var(--text-light-color);">没有找到相关内容哦~</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <div class="main-content-area container">
+        <main class="content-main tags-page">
+            <article class="tags-content post-full">
+                <header class="post-header-full">
+                    <h1 class="post-title-full">标签汇总 🏷️</h1>
+                </header>
+                <div class="post-content-full">
+                    <p>点击下面的标签，可以查看该标签下的所有文章列表~</p>
+
+                    <!-- 用于显示所有标签按钮的容器 -->
+                    <div id="all-tags-container" class="all-tags-list flat-tags">
+                        <p>标签加载中...</p>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 40px 0;">
+
+                    <!-- 用于显示选中标签下文章列表的容器 -->
+                    <div id="tag-posts-container">
+                        <h2 id="tag-posts-title" style="display: none;"></h2> <!-- 初始隐藏标题 -->
+                        <ul id="tag-posts-list" class="post-list-under-tag">
+                            <!-- JS 会填充这里的文章列表 -->
+                        </ul>
+                        <p id="tag-posts-placeholder" style="display: none; color: var(--text-light-color);">该标签下暂无文章。</p>
+                    </div>
+
+                </div>
+            </article>
+        </main>
+         <!-- 侧边栏 (标签汇总页通常不需要侧边栏) -->
+         <!-- 你可以保留侧边栏，或者删除下面的 <aside> 部分 -->
+        <!--
+        <aside class="sidebar">
+             ...
+        </aside>
+        -->
+
+    </div> <!-- /.main-content-area -->
+
+    <!-- 页脚 (和 blog.html 一致) -->
+    <footer class="site-footer">
+        <div class="footer-content container">
+            <p>© 2024 东风夹 | 由热爱驱动 ❤️</p>
+            <p>Powered by GitHub Pages</p>
+        </div>
+    </footer>
+
+    <!-- 固定元素 (和 blog.html 一致) -->
+    <button id="back-to-top" title="回到顶部">🔝</button>
+    <!-- <div id="bgm-player-container" class="bgm-player">
+        <button id="bgm-toggle-button" aria-label="播放/暂停背景音乐">🎵</button>
+        <audio id="bgm-audio" loop>
+             <source src="audio/Cry for the Moon.flac" type="audio/mpeg"> 注意路径 
+        </audio>
+    </div> -->
+
+    <!-- 引入 JS 文件 (和 blog.html 一致, 因为页头等需要 JS) -->
+    <script src="js/fuse.min.js"></script>  
+    <script src="js/search.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="js/tags-page.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+</body>
+</html>

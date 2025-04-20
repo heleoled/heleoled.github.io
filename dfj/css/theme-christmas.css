@@ -1,0 +1,152 @@
+/* 文件: css/theme-christmas.css */
+/* 一个简单的、手动启用的圣诞主题 */
+
+/* --- 基础调整 --- */
+body {
+    /* (可选) 添加一个微妙的雪花背景纹理 */
+    /* background-image: url('../images/snowflakes-pattern.png'), var(--bg-color); */
+    /* background-repeat: repeat; */
+}
+
+/* --- 页头和页脚 --- */
+.site-header {
+    /* background-color: #c8243c; */ /* 深红色背景? */
+    /* border-bottom-color: #b02035; */
+    /* 或者保持白色，但标题用红色/绿色 */
+}
+.site-header .site-title a {
+    color: #d9534f; /* 圣诞红 */
+}
+.site-header .site-description {
+    /* color: #f8f8f8; */ /* 如果背景深色，文字用浅色 */
+}
+.main-navigation a:hover,
+.main-navigation a:focus,
+.main-navigation .current-menu-item a {
+    color: #5cb85c; /* 圣诞绿 */
+    border-bottom-color: #5cb85c;
+}
+
+.site-footer {
+     /* background-color: #f7f7f7; */ /* 页脚可以用浅灰色或白色 */
+     /* border-top-color: #eee; */
+}
+
+/* --- 主要内容区 --- */
+h1, h2, h3, h4, h5, h6, .widget-title {
+    color: #d9534f; /* 标题用红色 */
+}
+.section-title {
+     border-bottom-color: #5cb85c; /* 分类标题下划线用绿色 */
+}
+ .section-title .icon {
+     /* 可以考虑换成圣诞图标 🎄 🎁 ？但这需要改 HTML 或用伪元素 */
+ }
+
+a {
+    color: #5cb85c; /* 链接用绿色 */
+}
+a:hover {
+    color: #4cae4c; /* 链接悬浮深绿色 */
+}
+
+/* --- 卡片和按钮 --- */
+.post-preview, .widget, .post-full {
+    border-color: #f0cfd4; /* 边框用淡红色 */
+    box-shadow: 0 3px 15px rgba(217, 83, 79, 0.1); /* 阴影带红色调 */
+}
+
+.read-more {
+    color: #d9534f;
+}
+ .read-more:hover {
+     color: #c9302c;
+ }
+
+button, .back-home-link, .community-widget a {
+    background-color: #d9534f; /* 主要按钮用红色 */
+    border-color: #d43f3a;
+    color: white;
+}
+ button:hover, .back-home-link:hover, .community-widget a:hover {
+     background-color: #c9302c;
+     border-color: #ac2925;
+ }
+
+/* 点赞按钮 */
+.like-button {
+     border-color: #f0cfd4;
+     color: #d9534f;
+}
+.like-button:hover {
+    background-color: #f0cfd4;
+    color: #c9302c;
+    border-color: #e9b9c0;
+}
+.like-button.liked {
+     background-color: #5cb85c; /* 已点赞用绿色 */
+     border-color: #4cae4c;
+     color: white;
+}
+.like-button.liked:hover {
+      background-color: #4cae4c;
+ }
+
+/* 标签 */
+.tag-cloud a, .tag-item, .post-meta a {
+    background-color: #f7f7f7;
+    border: 1px solid #eee;
+    color: #555; /* 标签用中性色 */
+}
+ .tag-cloud a:hover, .tag-item:hover, .post-meta a:hover {
+     background-color: #5cb85c; /* 悬浮用绿色 */
+     border-color: #4cae4c;
+     color: white;
+ }
+
+/* 状态标签 (列表页) */
+.item-status { background-color: #d9534f; }
+.list-item.watching .item-status { background-color: #f0ad4e; } /* 橙色 */
+.list-item.completed .item-status { background-color: #5cb85c; } /* 绿色 */
+/* ... 其他状态颜色调整 ... */
+
+/* --- 固定元素 --- */
+#back-to-top {
+    background-color: #5cb85c; /* 回到顶部用绿色 */
+}
+#back-to-top:hover {
+     background-color: #4cae4c;
+}
+
+#bgm-toggle-button {
+    color: #d9534f; /* BGM 图标用红色 */
+    border-color: #f0cfd4;
+}
+ #bgm-toggle-button.playing {
+      color: #5cb85c; /* 播放时变绿色 */
+      animation: spin 4s linear infinite; /* 保留旋转 */
+ }
+
+
+/* (可选) 添加其他小装饰 */
+
+/* 给页头或页脚加个小小的圣诞帽或铃铛图标？ */
+.site-title a::after {
+    content: '🎄';
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+/* 给某些卡片加个微妙的红色/绿色边框光晕？ */
+/* .post-preview:hover, .widget:hover {
+    box-shadow: 0 0 15px 3px rgba(217, 83, 79, 0.3), 0 6px 15px rgba(255, 135, 171, 0.2);
+} */
+
+/* 用伪元素给链接加上小的装饰？ */ 
+ a::before {
+    content: '✨';
+    font-size: 0.7em;
+    margin-right: 2px;
+    opacity: 0.5;
+}
+

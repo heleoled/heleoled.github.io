@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东风夹の秘密基地</title> <!-- 博客主页标题 -->
+
+    <!-- 引入通用样式 (非常推荐为博客主页创建通用样式) -->
+    <link rel="stylesheet" href="css/common.css">
+
+    <!-- 引入博客主页专属样式 -->
+    <link rel="stylesheet" href="css/blog.css">
+    <!-- <link rel="stylesheet" href="css/theme-christmas.css"> -->
+    <!-- (可选) 引入亮色/暗色主题样式 - 如果不用 CSS 变量方式 -->
+    <!-- <link rel="stylesheet" href="css/theme-light.css" id="theme-link"> -->
+
+    <!-- 网站图标 Favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico"> -->
+
+    <!-- (待办) 如果需要引入图标库 (例如 Font Awesome) -->
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css"> -->
+     <!-- 在 <head> 标签内添加 -->
+
+<!-- 基本的 Favicon (PNG 格式) -->
+<!-- !!! 替换 href 中的路径和文件名 !!! -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"> <!-- 假设你准备了 32x32 的 PNG -->
+
+
+
+</head>
+<body class="theme-light"> <!-- 默认应用亮色主题, JS 可切换 -->
+
+    <!-- 页头区域 -->
+    <header class="site-header">
+        <div class="header-content container"> <!-- container 类用于限制宽度和居中 -->
+            <!-- 博客标题和描述 -->
+            <div class="site-branding">
+                <h1 class="site-title"><a href="blog.html">东风夹の秘密基地</a></h1>
+                <p class="site-description">记录美好与代码的次元碎片 (≧∇≦)/</p>
+            </div>
+
+            <!-- 主导航 -->
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="blog.html">首页</a></li>
+                    <li><a href="archives.html">归档</a></li>
+                    <li><a href="tags.html">标签</a></li>
+                    <li><a href="categories.html">文章分类</a></li>
+                    <li><a href="lists.html">收藏夹</a></li><!-- 追番/游戏列表 -->
+                    <li><a href="friends.html">友链</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                </ul>
+            </nav>
+
+            <!-- 页头小部件区域 -->
+            <div class="header-widgets">
+                <!-- 将 input 和 button 都放在这个容器里 -->
+                <div class="search-widget with-icon"> <!-- 添加 with-icon 类 -->
+                    <input type="search" id="search-input" placeholder="搜索文章..." class="search-input" disabled>
+                    <!-- 按钮不再需要文字，只保留图标，并可能需要调整 class -->
+                    <button id="search-button" class="search-button-icon" aria-label="搜索" disabled>🔍</button>
+                </div>                <!-- (待办) 主题切换按钮 -->
+                <button id="theme-switcher" aria-label="切换主题">🌙</button> <!-- 初始可能是切换到暗色 -->
+                <!-- (待办) 随机文章按钮 -->
+            </div>
+        </div><!-- .header-content -->
+        <div id="search-results-container" style="display: none; margin-top: 20px; padding: 20px; background-color: var(--card-bg-color); border-radius: 8px; box-shadow: 0 3px 10px var(--shadow-color);">
+            <h3>搜索结果:</h3>
+            <ul id="search-results-list"></ul>
+            <p id="search-no-results" style="display: none; color: var(--text-light-color);">没有找到相关内容哦~</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <div class="main-content-area container"> <!-- container 类用于限制宽度和居中 -->
+
+        <!-- 文章列表容器 -->
+        <main class="posts-container">
+
+            <!-- 示例文章分类：动漫日志 -->
+            <section id="anime-posts" class="category-section">
+                <h2 class="section-title">🎬 动漫日志</h2>
+
+                <!-- 文章预览 -->
+                <article class="post-preview">
+                    <header class="post-header">
+                        <h3 class="post-title"><a href="posts/anime-review-toradora.html">《龙与虎》观后感</a></h3>
+                        <p class="post-meta">
+                            <span class="post-date">2025年4月19日</span> |
+                            <span class="post-tags">标签: <a href="tags.html?tag=动漫评论">动漫评论</a>, <a href="tags.html?tag=校园">校园</a></span>
+                        </p>
+                    </header>
+                    <div class="post-excerpt">
+                        <p>《龙与虎》(Toradora!) 这部作品，在我心中一直占据着特殊的位置。初看时，或许会被它轻松搞笑的校园日常和"掌中老虎"逢坂大河的傲娇萌点所吸引，但随着剧情的深入，你会发现它远不止于此...</p>
+                    </div>
+                    <footer class="post-footer">
+                        <a href="posts/anime-review-toradora.html" class="read-more">阅读全文 »</a>
+                        <button class="like-button" aria-label="点赞" data-post-id="fjpl-lyh">
+                            👍 <span class="count">0</span>
+                        </button>
+                    </footer>
+                </article>
+
+                <article class="post-preview">
+                    <header class="post-header">
+                        <h3 class="post-title"><a href="posts/dmpj-gsbh.html">《怪兽8号》动画初评：32岁追梦少年（怪兽）的热血之路！</a></h3>
+                        <p class="post-meta">
+                            <span class="post-date">2025年4月19日</span> |
+                            <span class="post-tags">标签: <a href="tags.html?tag=动漫评论">动漫评论</a>, <a href="tags.html?tag=热血">热血</a></span>
+                        </p>
+                    </header>
+                    <div class="post-excerpt">
+                        <p>作为 JUMP+ 的台柱之一，《怪兽8号》的动画化可以说是万众期待！动画开播了几集，整体观感还是相当不错的，制作精良，打斗场面也足够燃！(ง •_•)ง</p>
+                    </div>
+                    <footer class="post-footer">
+                        <a href="posts/dmpj-gsbh.html" class="read-more">阅读全文 »</a>
+                        <!-- 为不同的文章设置不同的 data-post-id -->
+                        <button class="like-button" aria-label="点赞" data-post-id="code-log-example">
+                            👍 <span class="count">0</span>
+                        </button>
+                    </footer>
+                </article>
+
+            </section> <!-- /动漫日志结束 -->
+
+            <!-- 示例文章分类：代码笔记 -->
+            <section id="code-posts" class="category-section">
+                <h2 class="section-title">💻 代码笔记</h2>
+                <article class="post-preview">
+                    <header class="post-header">
+                        <h3 class="post-title"><a href="c.heml">C语言 入门学习</a></h3>
+                        <p class="post-meta">
+                            <span class="post-date">2025年4月19日</span> |
+                            <span class="post-tags">标签: <a href="tags.html?tag=C语言">C语言</a>, <a href="tags.html?tag=编程">编程</a>, <a href="tags.html?tag=学习笔记">学习笔记</a></span>
+                        </p>
+                    </header>
+                    <div class="post-excerpt">
+                        <p>学习了最开始的#include ...</p>
+                    </div>
+                    <footer class="post-footer">
+                        <a href="ab.html" class="read-more">阅读全文 »</a>
+                        <button class="like-button" aria-label="点赞" data-post-id="xuexi1-example"> <!-- 确保 post-id 唯一 -->
+                            👍 <span class="count">0</span>
+                        </button>
+                    </footer>
+                </article>
+            </section> <!-- /代码笔记结束 -->
+
+            <!-- 示例文章分类：日常碎片 -->
+            <section id="life-posts" class="category-section">
+                <h2 class="section-title">🌸 日常碎片</h2>
+                <article class="post-preview">
+                    <header class="post-header">
+                        <h3 class="post-title"><a href="a.html">可爱的猫猫</a></h3>
+                        <p class="post-meta">
+                            <span class="post-date">2023年10月26日</span> |
+                            <span class="post-tags">标签: <a href="tags.html?tag=日常">日常</a>, <a href="tags.html?tag=猫">猫</a></span>
+                        </p>
+                    </header>
+                    <div class="post-excerpt">
+                        <p>今天遇到了超级可爱的猫咪...</p>
+                    </div>
+                    <footer class="post-footer">
+                        <a href="c.html" class="read-more">阅读全文 »</a>
+                        <!-- 在代码笔记的文章预览 footer 里添加 -->
+                        <button class="like-button" aria-label="点赞" data-post-id="rc1-example"> <!-- 确保 post-id 唯一 -->
+                            👍 <span class="count">0</span>
+                        </button>
+                    </footer>
+                </article>
+            </section> <!-- /日常碎片结束 -->
+
+            <!-- (待办) 分页导航 -->
+            <!-- <nav class="pagination"> ... </nav> -->
+
+        </main> <!-- /.posts-container -->
+
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+
+            <!-- 关于博主 -->
+            <div class="widget about-me-widget">
+                <h3 class="widget-title">关于博主</h3>
+                <img src="images/dfj.webp" alt="东风夹" class="sidebar-avatar">
+                <p>嗨！这里是东风夹！<br>ACGN 爱好者 & 前端学习中~</p>
+                <a href="about.html">了解更多...</a>
+            </div>
+            <!-- 时钟小部件 -->
+            <div class="widget clock-widget anime-style"> <!-- 这是最外层的容器 -->
+
+                <h3 class="widget-title">
+                    <span class="icon">💖</span>
+                    次元时间流
+                    <span class="icon">✨</span>
+                </h3>
+
+                <div id="clock-display" class="clock-time"> <!-- 这是显示 HH:MM:SS 的容器 -->
+                    <span class="hour">--</span>
+                    <span class="separator">:</span>
+                    <span class="minute">--</span>
+                    <span class="separator">:</span>
+                    <span class="second">--</span>
+                </div>
+
+                <!-- !!! 确保这个 div 在 widget 内部，clock-time 之后 !!! -->
+                <div class="clock-details">
+                    <span id="clock-weekday" class="weekday">---</span>
+                    <span id="clock-ampm" class="ampm">--</span>
+                </div>
+                <!-- !!! 确保它在这里 !!! -->
+
+            </div> <!-- 这是最外层容器的结束标签 -->
+            <!-- 随机古诗小部件 -->
+            <div class="widget poem-widget">
+                <h3 class="widget-title">古诗美韵 🍃</h3> <!-- 或者用其他图标 -->
+                <div class="poem-content">
+                    <p id="poem-sentence" class="sentence">...</p> <!-- 显示诗句 -->
+                    <p id="poem-info" class="info">—— 《...》 ...</p> <!-- 显示作者和题目 -->
+                </div>
+                <!-- (可选) 添加一个刷新按钮 -->
+                <button id="refresh-poem-btn">换一句</button>
+            </div>
+            <!-- (待办) 今日运势/心情 -->
+            <div class="widget fortune-widget">
+                <h3 class="widget-title">今日运势/心情</h3>
+                <p id="fortune-text">加载中...</p>
+            </div>
+            <!-- 图片展示小部件 -->
+            <div class="widget gallery-widget">
+                <h3 class="widget-title">图片角 ✨</h3> <!-- 或者叫"画廊"、"随手拍"等 -->
+                <div class="gallery-container">
+                    <!-- !!! 手动添加图片链接和路径 !!! -->
+                    <a href="images/gallery/htl.webp" data-lightbox="sidebar-gallery" data-title="图片描述1"><img src="images/gallery/htl.webp" alt="灰太狼"></a>
+                    <a href="images/gallery/jl.webp" data-lightbox="sidebar-gallery" data-title="图片描述2"><img src="images/gallery/jl.webp" alt="图2"></a>
+                    <a href="images/gallery/lyy.webp" data-lightbox="sidebar-gallery" data-title="图片描述3"><img src="images/gallery/lyy.webp" alt="图3"></a>
+                    <a href="images/gallery/wz.webp" data-lightbox="sidebar-gallery" data-title="图片描述4"><img src="images/gallery/wz.webp" alt="图4"></a>
+                    <a href="images/gallery/cy.webp" data-lightbox="sidebar-gallery" data-title="图片描述4"><img src="images/gallery/cy.webp" alt="图4"></a>
+                    <a href="images/gallery/yln.webp" data-lightbox="sidebar-gallery" data-title="图片描述4"><img src="images/gallery/yln.webp" alt="图4"></a></a>
+                    <!-- 添加更多图片... 最多放 4-6 张比较合适 -->
+                </div>
+            </div>
+
+            <!-- (待办) 社群小部件 -->
+            <div class="widget community-widget">
+                <h3 class="widget-title">常驻基地</h3>
+                <p>QQ群: <a href="https://qm.qq.com/q/xvfuW5S22s" target="_blank">796696625</a></p>
+                <!-- 或者使用更完整的加群链接格式 -->
+                <!-- <p>QQ群: <a href="https://jq.qq.com/?_wv=1027&k=你的加群key" target="_blank">796696625</a></p> -->
+            </div>
+
+            <!-- 追番/游戏列表小部件 -->
+            <div class="widget list-widget">
+                <h3 class="widget-title">当前状态 OwO</h3> <!-- 标题也可以改得可爱点 -->
+                <ul>
+                    <li>🎬 正在追：《男女之间的友情存在吗？（不，不存在!!）》</li>
+                    <li>🎮 沉迷中：《约战：精灵再临》</li>
+                    <li>📖 慢慢看：《唐诗·宋词300首》</li>
+                    <li>🎶 单曲循环：《当你》 - [林俊杰]</li>
+                    <!-- 你可以根据自己的情况添加或删除列表项 -->
+                    <li>🤔 思考中：人生... (开玩笑的)</li>
+                </ul>
+                <!-- 这个链接可以指向你未来可能创建的更详细的列表页面 -->
+                <a href="lists.html">查看我的更多收藏 »</a>
+                <!-- 如果暂时不打算做详细列表页，也可以直接注释掉或删除这行 -->
+            </div>
+
+        </aside> <!-- /.sidebar -->
+
+    </div> <!-- /.main-content-area -->
+
+    <!-- 页面底部 -->
+    <footer class="site-footer">
+        <div class="footer-content container"> <!-- container 类用于限制宽度和居中 -->
+            <p>© 2024 东风夹 | 由热爱驱动 ❤️</p>
+            <p>Powered by GitHub Pages</p>
+        </div><!-- .footer-content -->
+    </footer>
+
+    <!-- 固定在页面角落的元素 -->
+    <div id="quiz-widget-container" class="quiz-widget">
+        <h4 class="quiz-title">小测验：你是哪种属性？</h4>
+        <form id="quiz-form">
+            <p class="quiz-question">面对成堆的待补番剧，你会？</p>
+            <ul class="quiz-options">
+                <li>
+                    <label>
+                        <input type="radio" name="quiz-choice" value="A" required>
+                        A. 热血沸腾，先肝为敬！
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="quiz-choice" value="B">
+                        B. 精挑细选，看评分解说再决定。
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="quiz-choice" value="C">
+                        C. 可爱即是正义，优先萌系日常！
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="quiz-choice" value="D">
+                        D. 随缘吧，打开哪个看哪个。
+                    </label>
+                </li>
+            </ul>
+            <button type="submit" class="quiz-submit-btn">查看我的属性</button>
+        </form>
+        <div id="quiz-result" class="quiz-result" style="display: none;"> <!-- 结果区域初始隐藏 -->
+            <h5 class="result-title">你的属性是...</h5>
+            <p id="quiz-result-text"></p>
+            <button id="quiz-reset-btn" class="quiz-reset-btn">再测一次</button> <!-- 重置按钮 -->
+        </div>
+        <button id="quiz-close-btn" class="quiz-close-btn" title="关闭测验">×</button> <!-- 关闭按钮 -->
+    </div>
+    <!-- (待办) BGM 播放器 UI -->
+    <div id="bgm-player-container" class="bgm-player">
+        <button id="bgm-toggle-button" aria-label="播放/暂停背景音乐">🎵</button>
+        <audio id="bgm-audio" loop>
+            <source src="audio/Cry for the Moon.flac" type="audio/mpeg">
+            <!-- 可以为其他格式提供备选 -->
+            <!-- <source src="audio/background-music.ogg" type="audio/ogg"> -->
+            你的浏览器不支持 Audio 元素。
+        </audio>
+        <!-- <source src="audio/background-music.mp3" type="audio/mpeg"> -->
+    </div>
+
+    <!-- (待办) 回到顶部按钮 -->
+    <!-- (待办) 回到顶部按钮 -->
+    <button id="back-to-top" title="回到顶部">🔝</button> <!-- 初始隐藏 -->
+    <!-- 引入主要的 JavaScript 文件 -->
+    <script src="js/fuse.min.js"></script>  
+    <script src="js/search.js"></script>
+    <script src="js/blog.js"></script> <!-- 确保路径正确 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <!-- (可选) 引入其他功能对应的 JS 文件 -->
+    <!-- 例如: -->
+    <!-- <script src="js/theme-switcher.js"></script> -->
+    <!-- <script src="js/back-to-top.js"></script> -->
+    <!-- <script src="js/fortune-widget.js"></script> -->
+    <!-- <script src="js/bgm-player.js"></script> -->
+    <!-- ... -->
+
+</body>
+</html>
